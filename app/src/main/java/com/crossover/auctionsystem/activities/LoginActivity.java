@@ -69,7 +69,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
     @Override
     public void startItemsAvailableForBidActivity() {
-        Intent intent = new Intent(mContext, ItemsAvailableForBidActivity.class);
+        Intent intent = new Intent(mContext, ViewItemsInAuctionActivity.class);
         startActivity(intent);
         finish();
     }

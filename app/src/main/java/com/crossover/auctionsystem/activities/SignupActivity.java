@@ -94,7 +94,7 @@ public class SignupActivity extends AppCompatActivity implements SignupView {
 
     @Override
     public void startItemsAvailableForBidActivity() {
-        Intent intent = new Intent(mContext, ItemsAvailableForBidActivity.class);
+        Intent intent = new Intent(mContext, ViewItemsInAuctionActivity.class);
         startActivity(intent);
         finish();
     }

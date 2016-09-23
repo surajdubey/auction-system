@@ -17,6 +17,6 @@ public class ItemsInAuctionPresenter {
     }
 
     public void listAllItems() {
-
+        mInteractor.fetchAllItems();
     }
 }

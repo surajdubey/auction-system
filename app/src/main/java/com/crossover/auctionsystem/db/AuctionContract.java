@@ -27,6 +27,7 @@ public class AuctionContract {
         public static final String COLUMN_NAME_DESCRIPTION = "description";
         public static final String COLUMN_NAME_MINIMUM_BID_AMOUNT = "minimum_bid_amount";
         public static final String COLUMN_NAME_TARGET_BID_AMOUNT = "target_bid_amount";
+        public static final String COLUMN_NAME_IS_ITEM_SOLD = "is_item_sold";
     }
 
     public static class Bid implements BaseColumns {

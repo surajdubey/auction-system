@@ -26,6 +26,7 @@ public class AuctionContract {
         public static final String COLUMN_NAME_ITEM_NAME = "item_name";
         public static final String COLUMN_NAME_DESCRIPTION = "description";
         public static final String COLUMN_NAME_MINIMUM_BID_AMOUNT = "minimum_bid_amount";
+        public static final String COLUMN_NAME_TARGET_BID_AMOUNT = "target_bid_amount";
     }
 
     public static class Bid implements BaseColumns {
@@ -41,6 +42,5 @@ public class AuctionContract {
         public static final String TABLE_NAME = "sellers";
         public static final String COLUMN_NAME_USER_ID = "user_id";
         public static final String COLUMN_NAME_ITEM_ID = "item_id";
-        public static final String COLUMN_NAME_SELL_EXPIRATION_TIME = "sell_expiration_time";
     }
 }

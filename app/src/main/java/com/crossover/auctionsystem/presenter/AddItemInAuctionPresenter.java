@@ -3,6 +3,8 @@ package com.crossover.auctionsystem.presenter;
 import com.crossover.auctionsystem.interactor.AddItemInAuctionInteractor;
 import com.crossover.auctionsystem.view.AddItemInAuctionView;
 
+import static com.crossover.auctionsystem.utils.NumberUtil.isValidInt;
+
 /**
  * Created by suraj on 23/9/16.
  */
@@ -45,9 +47,9 @@ public class AddItemInAuctionPresenter {
         int targetBidAmount = Integer.parseInt(targetAmountText);
 
         mInteractor.addItem(name, description, minimumBidAmount, targetBidAmount);
+        mView.showBidSuccessMessage();
+
+        mView.startViewItemsInAuctionActivity();
     }
 
-    private boolean isValidInt(String input) {
-        return input.matches("\\d+");
-    }
 }

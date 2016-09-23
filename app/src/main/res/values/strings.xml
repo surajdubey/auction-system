@@ -30,4 +30,9 @@
     <string name="minimum_amount_invalid">Minimum Amount is Invalid</string>
     <string name="description_invalid_error">Description must have atleast 5 characters</string>
     <string name="name_invalid_error">Name must have atleast 5 characters</string>
+    <string name="enter_bid_amount">Enter Bid Amount</string>
+    <string name="minimum_amount_required_text">Minimum Amount Required For Bidding is : </string>
+    <string name="submit_bid">Submit Bid</string>
+    <string name="bid_amount_invalid_error">Please Enter valid Bid Amount Value</string>
+    <string name="bid_amount_less_than_minimum_amount_error">Bid Amount is less than minimum bid amount</string>
 </resources>

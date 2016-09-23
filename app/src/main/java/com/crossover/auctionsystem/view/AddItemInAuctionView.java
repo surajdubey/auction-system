@@ -20,4 +20,8 @@ public interface AddItemInAuctionView {
     String getDescription();
 
     String getName();
+
+    void startViewItemsInAuctionActivity();
+
+    void showBidSuccessMessage();
 }

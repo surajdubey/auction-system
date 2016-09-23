@@ -16,6 +16,7 @@
     <string name="item_name">Item Name : </string>
     <string name="description">Description :</string>
     <string name="sold_by">Sold By : </string>
-    <string name="minimum_bid_amount">Minimum Bid Amount</string>
-    <string name="bid_winner_amount_message">Winner of this bid has won at amount : </string>
+    <string name="minimum_bid_amount">Minimum Bid Amount : </string>
+    <string name="bid_winner_amount_message">Won at amount : </string>
+    <string name="winner">Winner :</string>
 </resources>

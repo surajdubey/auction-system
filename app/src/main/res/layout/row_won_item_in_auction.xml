@@ -61,11 +61,28 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/winner"
+            />
+
+        <TextView
+            android:id="@+id/item_winner_name_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/ten_dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="@string/bid_winner_amount_message"
             />
 
         <TextView
-            android:id="@+id/item_min_bid_amount_textview"
+            android:id="@+id/item_winner_amount_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </LinearLayout>

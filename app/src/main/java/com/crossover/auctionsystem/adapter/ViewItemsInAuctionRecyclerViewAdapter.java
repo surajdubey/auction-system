@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.crossover.auctionsystem.R;
+import com.crossover.auctionsystem.interactor.ItemsInAuctionInteractor;
 import com.crossover.auctionsystem.model.Item;
 
 import java.util.ArrayList;
@@ -23,18 +24,26 @@ public class ViewItemsInAuctionRecyclerViewAdapter extends RecyclerView.Adapter<
     private static final int ITEM_AVAILABLE = 0;
     private static final int ITEM_NOT_AVAILABLE = 0;
 
+    private ItemsInAuctionInteractor mItemsInAuctionInteractor;
+
     public ViewItemsInAuctionRecyclerViewAdapter(Context context, ArrayList<Item> items) {
         this.mItems = items;
         this.mContext = context;
+        mItemsInAuctionInteractor = new ItemsInAuctionInteractor(context);
     }
 
     @Override
     public ItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        switch (viewType) {
-            case ITEM_AVAILABLE :
+        int layoutResId;
+
+        if(viewType == ITEM_AVAILABLE) {
+            layoutResId = R.layout.row_available_item_in_auction;
+        } else {
+            layoutResId = R.layout.row_won_item_in_auction;
         }
-        View itemView = LayoutInflater.from(mContext).inflate(R.layout.row_available_item_in_auction, parent,  false);
+
+        View itemView = LayoutInflater.from(mContext).inflate(layoutResId, parent,  false);
         ItemViewHolder viewHolder = new ItemViewHolder(itemView);
         return viewHolder;
     }
@@ -42,6 +51,24 @@ public class ViewItemsInAuctionRecyclerViewAdapter extends RecyclerView.Adapter<
     @Override
     public void onBindViewHolder(ItemViewHolder holder, int position) {
 
+        Item item = mItems.get(position);
+
+        holder.nameTextView.setText(item.getItemName());
+        holder.descriptionTextView.setText(item.getItemDescription());
+
+        if(holder.getItemViewType() == ITEM_AVAILABLE) {
+            String minimumBidAmountText = item.getMinimumBidAmount() + "";
+            holder.minimumBidAmountTextView.setText(minimumBidAmountText);
+
+            holder.sellerNameTextView.setText(item.getSellerName());
+        } else {
+            String winnerName = mItemsInAuctionInteractor.getWinnerDisplayNameForItem(item.getItemId());
+
+            holder.winnerNameTextView.setText(winnerName);
+
+            String winnerAmountText = mItemsInAuctionInteractor.getWinnerBidAmountForItem(item.getItemId()) + "";
+            holder.winnerAmountTextView.setText(winnerAmountText);
+        }
     }
 
     @Override
@@ -66,15 +93,26 @@ public class ViewItemsInAuctionRecyclerViewAdapter extends RecyclerView.Adapter<
         private Item mItem;
         private TextView nameTextView;
         private TextView descriptionTextView;
+
         private TextView minimumBidAmountTextView;
         private TextView sellerNameTextView;
+
+        private TextView winnerNameTextView;
+        private TextView winnerAmountTextView;
 
         public ItemViewHolder(View itemView) {
             super(itemView);
             nameTextView = (TextView) itemView.findViewById(R.id.item_name_textview);
             descriptionTextView = (TextView) itemView.findViewById(R.id.item_description_textview);
-            minimumBidAmountTextView = (TextView) itemView.findViewById(R.id.seller_name_textview);
             minimumBidAmountTextView = (TextView) itemView.findViewById(R.id.item_min_bid_amount_textview);
+
+            sellerNameTextView = (TextView) itemView.findViewById(R.id.seller_name_textview);
+            winnerNameTextView = (TextView) itemView.findViewById(R.id.item_winner_name_textview);
+            winnerAmountTextView = (TextView) itemView.findViewById(R.id.item_winner_amount_textview);
+        }
+
+        public void setItem(Item item) {
+            this.mItem = item;
         }
 
         @Override

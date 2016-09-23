@@ -2,10 +2,12 @@ package com.crossover.auctionsystem.db;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 
 import com.crossover.auctionsystem.model.Bid;
+import com.crossover.auctionsystem.model.User;
 
 /**
  * Created by suraj on 23/9/16.
@@ -51,4 +53,43 @@ public class BidDataSource {
         mDatabase.update(AuctionContract.Bid.TABLE_NAME, values, AuctionContract.Bid._ID + " = " + bid.getBidId(), null);
     }
 
+    public int getWinnerUserId(int itemId) {
+        String findQuery = "SELECT " + AuctionContract.Bid.COLUMN_NAME_USER_ID +
+                " FROM " + AuctionContract.Bid.TABLE_NAME +
+                " WHERE " + AuctionContract.Bid.COLUMN_NAME_ITEM_ID + " = " +
+                itemId + " AND " + AuctionContract.Bid.COLUMN_NAME_BID_STATUS +
+                " = " + Bid.BID_WINNER;
+
+        int userId = User.INVALID_USER_ID;
+
+        Cursor cursor = mDatabase.rawQuery(findQuery, null);
+
+        if(cursor.moveToFirst()) {
+            int userIdIndex = cursor.getColumnIndex(AuctionContract.Bid.COLUMN_NAME_USER_ID);
+            userId = cursor.getInt(userIdIndex);
+        }
+
+        cursor.close();
+        return userId;
+    }
+
+    public int getWinnerBidAmount(int itemId) {
+        String findQuery = "SELECT " + AuctionContract.Bid.COLUMN_NAME_BID_AMOUNT +
+                " FROM " + AuctionContract.Bid.TABLE_NAME +
+                " WHERE " + AuctionContract.Bid.COLUMN_NAME_ITEM_ID + " = " +
+                itemId + " AND " + AuctionContract.Bid.COLUMN_NAME_BID_STATUS +
+                " = " + Bid.BID_WINNER;
+
+        int bidAmount = 0;
+
+        Cursor cursor = mDatabase.rawQuery(findQuery, null);
+
+        if(cursor.moveToFirst()) {
+            int bidAmountIndex = cursor.getColumnIndex(AuctionContract.Bid.COLUMN_NAME_BID_AMOUNT);
+            bidAmount = cursor.getInt(bidAmountIndex);
+        }
+
+        cursor.close();
+        return bidAmount;
+    }
 }

@@ -1,8 +1,5 @@
 package com.crossover.auctionsystem.view;
 
-import android.content.Context;
-
-import com.crossover.auctionsystem.interactor.ItemsInAuctionInteractor;
 import com.crossover.auctionsystem.model.Item;
 
 import java.util.ArrayList;

@@ -1,15 +1,29 @@
 package com.crossover.auctionsystem.activities;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.crossover.auctionsystem.R;
+import com.crossover.auctionsystem.view.LauncherView;
 
-public class LauncherActivity extends AppCompatActivity {
+public class LauncherActivity extends AppCompatActivity implements LauncherView {
+
+    private Context mContext = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launcher);
+
+        LauncherView launcherView = this;
+    }
+
+
+    @Override
+    public void startSignupActivity() {
+        Intent intent = new Intent(mContext, LoginActivity.class);
+        startActivity(intent);
     }
 }

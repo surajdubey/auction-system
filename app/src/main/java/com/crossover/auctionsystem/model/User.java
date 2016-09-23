@@ -1,13 +1,12 @@
 package com.crossover.auctionsystem.model;
 
 public class User {
-    public static final int USER_TYPE_ADMIN = 0;
-    public static final int USER_TYPE_DOCTOR = 1;
+
     public static final int INVALID_USER_ID = -1;
+
     private String name;
     private String username;
     private String password;
-    private int userType;
     private String createdAt;
 
     public String getName() {
@@ -32,14 +31,6 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public int getUserType() {
-        return userType;
-    }
-
-    public void setUserType(int userType) {
-        this.userType = userType;
     }
 
     public String getCreatedAt() {

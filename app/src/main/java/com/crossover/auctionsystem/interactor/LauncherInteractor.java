@@ -2,7 +2,6 @@ package com.crossover.auctionsystem.interactor;
 
 import android.content.Context;
 
-import com.conferencemanager.android.utils.PreferencesManager;
 import com.crossover.auctionsystem.utils.PreferencesManager;
 
 /**
@@ -18,5 +17,4 @@ public class LauncherInteractor {
     public boolean isUserLoggedIn() {
         return mPreferencesManager.isUserLoggedIn();
     }
-
 }

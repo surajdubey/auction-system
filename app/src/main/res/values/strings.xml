@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Auction System</string>
+    <string name="login">Login</string>
+    <string name="navigate_to_login">Navigate to login</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="enter_username">Enter Username</string>
+    <string name="enter_name">Enter Name</string>
+
+    <!-- Errors -->
+    <string name="name_length_invalid_error">Name must have at least 5 characters</string>
+    <string name="username_length_invalid_error">Username must have at least 5 characters</string>
+    <string name="password_length_invalid_error">Password must have at least 5 characters</string>
+    <string name="user_exists_error">User already exists</string>
+    <string name="invalid_credentials_error">Username or Password is invalid</string>
 </resources>

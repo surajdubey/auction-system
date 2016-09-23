@@ -18,6 +18,7 @@ public class AuctionContract {
         public static final String COLUMN_NAME_DISPLAY_NAME = "display_name";
         public static final String COLUMN_NAME_USERNAME = "username";
         public static final String COLUMN_NAME_PASSWORD = "password";
+        public static final String COLUMN_NAME_CREATED_TIME = "created_time";
     }
 
     public static class Item implements BaseColumns {

@@ -32,7 +32,7 @@ public class ItemDataSource {
         }
     }
 
-    public void addItem(Item item) {
+    public long addItem(Item item) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(AuctionContract.Item.COLUMN_NAME_ITEM_NAME, item.getItemName());
         contentValues.put(AuctionContract.Item.COLUMN_NAME_DESCRIPTION, item.getItemDescription());
@@ -40,7 +40,7 @@ public class ItemDataSource {
         contentValues.put(AuctionContract.Item.COLUMN_NAME_MINIMUM_BID_AMOUNT, item.getMinimumBidAmount());
         contentValues.put(AuctionContract.Item.COLUMN_NAME_TARGET_BID_AMOUNT, item.getTargetBidAmount());
 
-        mDatabase.insert(AuctionContract.Item.TABLE_NAME, null, contentValues);
+        return mDatabase.insert(AuctionContract.Item.TABLE_NAME, null, contentValues);
     }
 
     public ArrayList<Item> fetchAllItems() {

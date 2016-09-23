@@ -19,4 +19,15 @@
     <string name="minimum_bid_amount">Minimum Bid Amount : </string>
     <string name="bid_winner_amount_message">Won at amount : </string>
     <string name="winner">Winner :</string>
+    <string name="enter_item_name">Enter Item Name</string>
+    <string name="enter_item_description">Enter Item Description</string>
+    <string name="minimum_amount_for_bidding">Minimum Amount For Bidding</string>
+    <string name="target_amount_message">If user bids for amount more than or equal to target amount, user will
+    be declared as winner.</string>
+    <string name="enter_target_amount">Enter Target Amount</string>
+    <string name="submit_item">Submit Item</string>
+    <string name="invalid_target_amount">Target Amount is invalid</string>
+    <string name="minimum_amount_invalid">Minimum Amount is Invalid</string>
+    <string name="description_invalid_error">Description must have atleast 5 characters</string>
+    <string name="name_invalid_error">Name must have atleast 5 characters</string>
 </resources>

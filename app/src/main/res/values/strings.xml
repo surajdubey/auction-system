@@ -12,4 +12,10 @@
     <string name="password_length_invalid_error">Password must have at least 5 characters</string>
     <string name="user_exists_error">User already exists</string>
     <string name="invalid_credentials_error">Username or Password is invalid</string>
+
+    <string name="item_name">Item Name : </string>
+    <string name="description">Description :</string>
+    <string name="sold_by">Sold By : </string>
+    <string name="minimum_bid_amount">Minimum Bid Amount</string>
+    <string name="bid_winner_amount_message">Winner of this bid has won at amount : </string>
 </resources>

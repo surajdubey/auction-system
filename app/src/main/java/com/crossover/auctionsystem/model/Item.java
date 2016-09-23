@@ -16,7 +16,7 @@ public class Item {
     private int targetBidAmount;
     private boolean itemSold;
 
-    private boolean sellerName;
+    private String sellerName;
     private boolean currentMaximumBidAmount;
 
     public int getItemId() {
@@ -67,11 +67,15 @@ public class Item {
         this.itemSold = (itemSoldInt == ITEM_SOLD);
     }
 
-    public boolean isSellerName() {
+    public void setItemSold(boolean itemSold) {
+        this.itemSold = itemSold;
+    }
+
+    public String getSellerName() {
         return sellerName;
     }
 
-    public void setSellerName(boolean sellerName) {
+    public void setSellerName(String sellerName) {
         this.sellerName = sellerName;
     }
 

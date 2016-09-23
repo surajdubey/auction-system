@@ -1,7 +1,10 @@
 package com.crossover.auctionsystem.presenter;
 
 import com.crossover.auctionsystem.interactor.ItemsInAuctionInteractor;
+import com.crossover.auctionsystem.model.Item;
 import com.crossover.auctionsystem.view.ItemsInAuctionView;
+
+import java.util.ArrayList;
 
 /**
  * Created by suraj on 23/9/16.
@@ -17,6 +20,12 @@ public class ItemsInAuctionPresenter {
     }
 
     public void listAllItems() {
-        mInteractor.fetchAllItems();
+        ArrayList<Item> items = mInteractor.fetchAllItems();
+
+        if(items.isEmpty()) {
+            mView.showNoItemsAvailableForAuctionView();
+        } else {
+            mView.showItemForAuction(items);
+        }
     }
 }

@@ -20,12 +20,12 @@ public class LoginPresenter {
         String password = mView.getPassword();
 
         if(username.length()<5) {
-            mView.showUsernameInvalidError();
+            mView.showUsernameLengthInvalidError();
             return;
         }
 
         if(password.length()<5) {
-            mView.showPasswordInvalidError();
+            mView.showPasswordLengthInvalidError();
             return;
         }
 

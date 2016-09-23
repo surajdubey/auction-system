@@ -12,7 +12,7 @@ public class SignupPresenter {
     private SignupInteractor mInteractor;
 
     public SignupPresenter(SignupView signupView, SignupInteractor signupInteractor) {
-        this.mView =signupView;
+        this.mView = signupView;
         this.mInteractor = signupInteractor;
     }
 
@@ -21,22 +21,22 @@ public class SignupPresenter {
         String username = mView.getUsername();
         String password = mView.getPassword();
 
-        if(name.length()<5) {
+        if (name.length() < 5) {
             mView.showNameLengthInvalidError();
             return;
         }
 
-        if(username.length()<5) {
+        if (username.length() < 5) {
             mView.showUsernameLengthInvalidError();
             return;
         }
 
-        if(password.length()<5) {
+        if (password.length() < 5) {
             mView.showPasswordLengthInvalidError();
             return;
         }
 
-        if(mInteractor.userExists(username)) {
+        if (mInteractor.userExists(username)) {
             mView.showUserExistsError();
             return;
         }

@@ -12,10 +12,11 @@ import com.crossover.auctionsystem.utils.PreferencesManager;
  */
 
 public class SignupInteractor {
-    private PreferencesManager mPreferences;
+    private PreferencesManager preferencesManager;
     private UserDataSource mUserDataSource;
+
     public SignupInteractor(Context context) {
-        mPreferences = PreferencesManager.initializeInstance(context);
+        preferencesManager = PreferencesManager.initializeInstance(context);
         mUserDataSource = new UserDataSource(context);
     }
 
@@ -25,7 +26,8 @@ public class SignupInteractor {
         User user = new User();
         user.setUsername(username);
 
-        boolean userExists = mUserDataSource.getUserIdIfUserExists(user) == UserDataSource.INVALID_USER_ID;;
+        boolean userExists = mUserDataSource.getUserIdIfUserExists(user) == UserDataSource.INVALID_USER_ID;
+        ;
         mUserDataSource.close();
         return userExists;
     }
@@ -47,7 +49,7 @@ public class SignupInteractor {
          * save this data in Preferences
          */
 
-        mPreferences.setUserLoggedIn(true);
-        mPreferences.setUserId(userId);
+        preferencesManager.setUserLoggedIn(true);
+        preferencesManager.setUserId(userId);
     }
 }

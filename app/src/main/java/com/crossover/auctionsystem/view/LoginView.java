@@ -9,9 +9,9 @@ public interface LoginView {
 
     void startItemsAvailableForBidActivity();
 
-    void showPasswordInvalidError();
+    void showPasswordLengthInvalidError();
 
-    void showUsernameInvalidError();
+    void showUsernameLengthInvalidError();
 
     String getPassword();
 

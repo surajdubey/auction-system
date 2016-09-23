@@ -7,4 +7,6 @@ package com.crossover.auctionsystem.view;
 public interface LauncherView {
 
     void startSignupActivity();
+
+    void startItemsAvailableForBidActivity();
 }

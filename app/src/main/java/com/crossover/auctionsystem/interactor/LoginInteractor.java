@@ -27,8 +27,19 @@ public class LoginInteractor {
         user.setUsername(username);
         user.setPassword(password);
 
-        boolean userExists = mUserDataSource.userLogin(user) == UserDataSource.INVALID_USER_ID;;
+        long userId = mUserDataSource.userLogin(user);
         mUserDataSource.close();
-        return userExists;
+
+        if(userId == UserDataSource.INVALID_USER_ID) {
+            return false;
+        } else {
+            /**
+             * save this data in Preferences
+             */
+            mPreferencesManager.setUserLoggedIn(true);
+            mPreferencesManager.setUserId(userId);
+
+            return true;
+        }
     }
 }

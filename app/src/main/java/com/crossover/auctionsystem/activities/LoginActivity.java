@@ -75,12 +75,12 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     }
 
     @Override
-    public void showPasswordInvalidError() {
+    public void showPasswordLengthInvalidError() {
         mPasswordEditText.setError(getString(R.string.password_length_invalid_error));
     }
 
     @Override
-    public void showUsernameInvalidError() {
+    public void showUsernameLengthInvalidError() {
         mPasswordEditText.setError(getString(R.string.username_length_invalid_error));
     }
 

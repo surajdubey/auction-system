@@ -15,6 +15,7 @@ public class Bid {
     private int bidAmount;
     private int bidStatus;
     private String bidTime;
+    private String bidderName;
 
     public int getBidId() {
         return bidId;
@@ -62,5 +63,13 @@ public class Bid {
 
     public void setBidTime(String bidTime) {
         this.bidTime = bidTime;
+    }
+
+    public String getBidderName() {
+        return bidderName;
+    }
+
+    public void setBidderName(String bidderName) {
+        this.bidderName = bidderName;
     }
 }

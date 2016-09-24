@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.crossover.auctionsystem.R;
-import com.crossover.auctionsystem.activities.ViewAllBidsOnItemActivity;
+import com.crossover.auctionsystem.activities.ViewBidsOnItemActivity;
 import com.crossover.auctionsystem.model.Item;
 
 import org.greenrobot.eventbus.EventBus;
@@ -79,7 +79,7 @@ public class SubmittedItemsRecyclerViewAdapter extends RecyclerView.Adapter<Subm
         public void onClick(View view) {
             EventBus.getDefault().postSticky(item);
 
-            Intent intent = new Intent(mContext, ViewAllBidsOnItemActivity.class);
+            Intent intent = new Intent(mContext, ViewBidsOnItemActivity.class);
             mContext.startActivity(intent);
         }
 

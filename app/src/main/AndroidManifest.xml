@@ -19,7 +19,7 @@
         <activity android:name=".activities.AddItemInAuctionActivity" />
         <activity android:name=".activities.BidOnItemActivity" />
         <activity android:name=".activities.SubmittedItemsForAuctionActivity" />
-        <activity android:name=".activities.ViewAllBidsOnItemActivity"></activity>
+        <activity android:name=".activities.ViewBidsOnItemActivity"></activity>
     </application>
 
 </manifest>

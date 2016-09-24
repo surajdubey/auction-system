@@ -36,4 +36,7 @@
     <string name="bid_amount_invalid_error">Please Enter valid Bid Amount Value</string>
     <string name="bid_amount_less_than_minimum_amount_error">Bid Amount is less than minimum bid amount</string>
     <string name="sold">Sold</string>
+    <string name="bidder_name">Bidder Name</string>
+    <string name="bid_amount">Bid Amount</string>
+    <string name="declare_as_winner">Declare As Winner</string>
 </resources>

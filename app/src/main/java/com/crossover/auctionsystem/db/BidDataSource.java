@@ -9,6 +9,8 @@ import android.database.sqlite.SQLiteException;
 import com.crossover.auctionsystem.model.Bid;
 import com.crossover.auctionsystem.model.User;
 
+import java.util.ArrayList;
+
 /**
  * Created by suraj on 23/9/16.
  */
@@ -91,5 +93,32 @@ public class BidDataSource {
 
         cursor.close();
         return bidAmount;
+    }
+
+    public ArrayList<Bid> getAllBidsOnItem(int itemId) {
+        String findQuery = "SELECT * FROM " + AuctionContract.Bid.TABLE_NAME +
+                " WHERE " + AuctionContract.Bid.COLUMN_NAME_ITEM_ID + " = " + itemId;
+
+        ArrayList<Bid> bids = new ArrayList<>();
+
+        Cursor cursor = mDatabase.rawQuery(findQuery, null);
+
+        if(cursor.moveToFirst()) {
+
+            int userIdIndex = cursor.getColumnIndex(AuctionContract.Bid.COLUMN_NAME_USER_ID);
+            int bidAmountIndex = cursor.getColumnIndex(AuctionContract.Bid.COLUMN_NAME_BID_AMOUNT);
+            int bidStatusIndex = cursor.getColumnIndex(AuctionContract.Bid.COLUMN_NAME_BID_STATUS);
+
+            while(!cursor.isAfterLast()) {
+                Bid bid = new Bid();
+                bid.setUserId(cursor.getInt(userIdIndex));
+                bid.setBidAmount(cursor.getInt(bidAmountIndex));
+                bid.setBidStatus(cursor.getInt(bidStatusIndex));
+                bids.add(bid);
+            }
+        }
+
+        cursor.close();
+        return bids;
     }
 }

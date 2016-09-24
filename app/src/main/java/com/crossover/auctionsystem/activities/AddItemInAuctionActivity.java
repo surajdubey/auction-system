@@ -84,4 +84,14 @@ public class AddItemInAuctionActivity extends AppCompatActivity implements AddIt
     public String getName() {
         return mNameEditText.getText().toString();
     }
+
+    @Override
+    public void startViewItemsInAuctionActivity() {
+
+    }
+
+    @Override
+    public void showBidSuccessMessage() {
+
+    }
 }

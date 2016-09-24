@@ -27,7 +27,7 @@ public class ItemDataSource {
     }
 
     public void close() {
-        if(mDatabase!=null) {
+        if (mDatabase != null) {
             mDatabase.close();
         }
     }
@@ -51,32 +51,66 @@ public class ItemDataSource {
 
         Cursor cursor = mDatabase.rawQuery(findQuery, null);
 
-        if(cursor.moveToFirst()) {
-            Item item = new Item();
+        if (cursor.moveToFirst()) {
 
             int itemNameIndex = cursor.getColumnIndex(AuctionContract.Item.COLUMN_NAME_ITEM_NAME);
-            item.setItemName(cursor.getString(itemNameIndex));
-
             int itemDescriptionIndex = cursor.getColumnIndex(AuctionContract.Item.COLUMN_NAME_DESCRIPTION);
-            item.setItemDescription(cursor.getString(itemDescriptionIndex));
-
             int itemSoldIndex = cursor.getColumnIndex(AuctionContract.Item.COLUMN_NAME_IS_ITEM_SOLD);
-            item.setItemSold(cursor.getInt(itemSoldIndex));
-
             int itemMinimumBidAmountIndex = cursor.getColumnIndex(AuctionContract.Item.COLUMN_NAME_MINIMUM_BID_AMOUNT);
-            item.setMinimumBidAmount(cursor.getInt(itemMinimumBidAmountIndex));
-
             int targetBidAmountIndex = cursor.getColumnIndex(AuctionContract.Item.COLUMN_NAME_TARGET_BID_AMOUNT);
-            item.setTargetBidAmount(cursor.getInt(targetBidAmountIndex));
 
-            /**
-             * query for seller here
-             */
+            while (cursor.moveToNext()) {
+                Item item = new Item();
 
-            items.add(item);
+                item.setItemName(cursor.getString(itemNameIndex));
+
+                item.setItemDescription(cursor.getString(itemDescriptionIndex));
+
+                item.setItemSold(cursor.getInt(itemSoldIndex));
+
+                item.setMinimumBidAmount(cursor.getInt(itemMinimumBidAmountIndex));
+
+                item.setTargetBidAmount(cursor.getInt(targetBidAmountIndex));
+
+                items.add(item);
+            }
         }
 
         cursor.close();
         return items;
+    }
+
+    public Item getItemDetails(int itemId) {
+        String findQuery = "SELECT * FROM " + AuctionContract.Item.TABLE_NAME + " WHERE " +
+                AuctionContract.Item.COLUMN_NAME_IS_ITEM_SOLD + " = " + Item.ITEM_SOLD;
+
+        Cursor cursor = mDatabase.rawQuery(findQuery, null);
+
+        Item item = new Item();
+
+        if (cursor.moveToFirst()) {
+
+            int itemNameIndex = cursor.getColumnIndex(AuctionContract.Item.COLUMN_NAME_ITEM_NAME);
+            int itemDescriptionIndex = cursor.getColumnIndex(AuctionContract.Item.COLUMN_NAME_DESCRIPTION);
+            int itemSoldIndex = cursor.getColumnIndex(AuctionContract.Item.COLUMN_NAME_IS_ITEM_SOLD);
+            int itemMinimumBidAmountIndex = cursor.getColumnIndex(AuctionContract.Item.COLUMN_NAME_MINIMUM_BID_AMOUNT);
+            int targetBidAmountIndex = cursor.getColumnIndex(AuctionContract.Item.COLUMN_NAME_TARGET_BID_AMOUNT);
+
+            item.setItemName(cursor.getString(itemNameIndex));
+
+            item.setItemDescription(cursor.getString(itemDescriptionIndex));
+
+            item.setItemSold(cursor.getInt(itemSoldIndex));
+
+            item.setMinimumBidAmount(cursor.getInt(itemMinimumBidAmountIndex));
+
+            item.setTargetBidAmount(cursor.getInt(targetBidAmountIndex));
+
+            item.setItemId(itemId);
+
+        }
+
+        cursor.close();
+        return item;
     }
 }

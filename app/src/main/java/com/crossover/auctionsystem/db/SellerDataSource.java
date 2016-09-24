@@ -6,8 +6,11 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 
+import com.crossover.auctionsystem.model.Item;
 import com.crossover.auctionsystem.model.Seller;
 import com.crossover.auctionsystem.model.User;
+
+import java.util.ArrayList;
 
 /**
  * Created by suraj on 23/9/16.
@@ -57,4 +60,26 @@ public class SellerDataSource {
         return userId;
     }
 
+    public ArrayList<Item> fetchAllItemsSubmittedByUser(int userId) {
+
+        ArrayList<Item> items = new ArrayList<>();
+        String findQuery = "SELECT " + AuctionContract.Seller.COLUMN_NAME_ITEM_ID + " WHERE " +
+                AuctionContract.Seller.COLUMN_NAME_USER_ID + " = " + userId;
+
+        Cursor cursor = mDatabase.rawQuery(findQuery, null);
+
+        if(cursor.moveToFirst()) {
+            int itemIdIndex = cursor.getColumnIndex(AuctionContract.Seller.COLUMN_NAME_ITEM_ID);
+
+            while(cursor.moveToNext()) {
+                Item item = new Item();
+                int itemId = cursor.getInt(itemIdIndex);
+                item.setItemId(itemId);
+                items.add(item);
+            }
+        }
+
+        return items;
+
+    }
 }

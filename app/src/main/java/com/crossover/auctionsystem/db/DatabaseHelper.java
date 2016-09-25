@@ -20,7 +20,7 @@ class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String SQL_CREATE_ITEMS_TABLE = "CREATE TABLE " +
             AuctionContract.Item.TABLE_NAME + "(" +
-            AuctionContract.Item._ID + " INTEGER PRIMARY AUTOINCREMENT , " +
+            AuctionContract.Item._ID + " INTEGER PRIMARY KEY AUTOINCREMENT , " +
             AuctionContract.Item.COLUMN_NAME_ITEM_NAME + " TEXT, " +
             AuctionContract.Item.COLUMN_NAME_DESCRIPTION + " TEXT , " +
             AuctionContract.Item.COLUMN_NAME_MINIMUM_BID_AMOUNT + " INTEGER , " +
@@ -28,7 +28,7 @@ class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String SQL_CREATE_BIDS_TABLE = "CREATE TABLE " +
             AuctionContract.Bid.TABLE_NAME + "(" +
-            AuctionContract.Bid._ID + " INTEGER PRIMARY AUTOINCREMENT, " +
+            AuctionContract.Bid._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             AuctionContract.Bid.COLUMN_NAME_USER_ID + " INTEGER, " +
             AuctionContract.Bid.COLUMN_NAME_ITEM_ID + " INTEGER, "+
             AuctionContract.Bid.COLUMN_NAME_BID_AMOUNT + " INTEGER, " +
@@ -37,7 +37,7 @@ class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String SQL_CREATE_SELLERS_TABLE = "CREATE TABLE " +
             AuctionContract.Seller.TABLE_NAME + "(" +
-            AuctionContract.Seller._ID + " INTEGER PRIMARY AUTOINCREMENT , " +
+            AuctionContract.Seller._ID + " INTEGER PRIMARY KEY AUTOINCREMENT , " +
             AuctionContract.Seller.COLUMN_NAME_USER_ID + " INTEGER , " +
             AuctionContract.Seller.COLUMN_NAME_ITEM_ID + " INTEGER )";
 

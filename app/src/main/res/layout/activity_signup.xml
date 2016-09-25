@@ -15,33 +15,19 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp">
-
             <EditText
                 android:id="@+id/etName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/enter_name" />
-        </android.support.design.widget.TextInputLayout>
-
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                android:hint="@string/enter_name"
+                android:layout_marginTop="20dp"/>
 
             <EditText
                 android:id="@+id/username_edittext"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/enter_username" />
-        </android.support.design.widget.TextInputLayout>
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
             <EditText
                 android:id="@+id/password_edittext"
@@ -49,7 +35,6 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/enter_password"
                 android:inputType="textPassword" />
-        </android.support.design.widget.TextInputLayout>
 
         <Button
             android:id="@+id/btnSignUp"

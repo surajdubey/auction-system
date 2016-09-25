@@ -10,29 +10,19 @@
     android:paddingTop="50dp"
     tools:context=".activities.LoginActivity">
 
-    <android.support.design.widget.TextInputLayout
+    <EditText
+        android:id="@+id/username_edittext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="20dp"
+        android:hint="@string/enter_username" />
 
-        <EditText
-            android:id="@+id/username_edittext"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/enter_username" />
-    </android.support.design.widget.TextInputLayout>
-
-    <android.support.design.widget.TextInputLayout
+    <EditText
+        android:id="@+id/password_edittext"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <EditText
-            android:id="@+id/password_edittext"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/enter_password"
-            android:inputType="textPassword" />
-    </android.support.design.widget.TextInputLayout>
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_password"
+        android:inputType="textPassword" />
 
     <Button
         android:id="@+id/login_button"
@@ -53,6 +43,6 @@
         android:layout_marginTop="10dp"
         android:background="@color/colorAccent"
         android:gravity="center"
-        android:text="@string/login"
+        android:text="@string/signup"
         android:textColor="@color/colorWhite" />
 </LinearLayout>

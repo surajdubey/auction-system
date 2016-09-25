@@ -32,7 +32,7 @@ public class SignupActivity extends AppCompatActivity implements SignupView {
     //login Button
     private Button mLoginButton;
 
-    Context mContext = this;
+    private Context mContext = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

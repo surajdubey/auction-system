@@ -29,7 +29,7 @@ public class LauncherActivity extends AppCompatActivity implements LauncherView 
 
     @Override
     public void startSignupActivity() {
-        Intent intent = new Intent(mContext, LoginActivity.class);
+        Intent intent = new Intent(mContext, SignupActivity.class);
         startActivity(intent);
         finish();
     }

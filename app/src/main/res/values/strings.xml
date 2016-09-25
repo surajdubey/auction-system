@@ -39,4 +39,5 @@
     <string name="bidder_name">Bidder Name</string>
     <string name="bid_amount">Bid Amount</string>
     <string name="declare_as_winner">Declare As Winner</string>
+    <string name="signup">Signup</string>
 </resources>

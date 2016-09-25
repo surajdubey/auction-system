@@ -1,5 +1,6 @@
 package com.crossover.auctionsystem.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 
 import com.crossover.auctionsystem.R;
 import com.crossover.auctionsystem.model.Bid;
+import com.crossover.auctionsystem.presenter.ViewBidsOnItemPresenter;
 
 import java.util.ArrayList;
 
@@ -21,10 +23,14 @@ public class ViewBidsOnItemRecyclerViewAdapter extends RecyclerView.Adapter<View
 
     private Context mContext;
     private ArrayList<Bid> mBids;
+    private boolean mIsItemWon;
+    private ViewBidsOnItemPresenter mPresenter;
 
-    public ViewBidsOnItemRecyclerViewAdapter(Context context, ArrayList<Bid> bids) {
+    public ViewBidsOnItemRecyclerViewAdapter(Context context, ViewBidsOnItemPresenter viewBidsOnItemPresenter, ArrayList<Bid> bids, boolean isItemWon) {
         this.mContext = context;
+        this.mPresenter = viewBidsOnItemPresenter;
         this.mBids = bids;
+        this.mIsItemWon = isItemWon;
     }
 
     @Override
@@ -62,14 +68,27 @@ public class ViewBidsOnItemRecyclerViewAdapter extends RecyclerView.Adapter<View
             bidderNameTextView = (TextView) itemView.findViewById(R.id.bidder_name_textview);
             bidAmountTextView = (TextView) itemView.findViewById(R.id.bid_amount_textview);
             declareWinnerImageView = (ImageView) itemView.findViewById(R.id.declare_win_imageview);
-            declareWinnerImageView.setOnClickListener(this);
+
+            /**
+             * if item is won, winner is already declared
+             * so hide declare winner image
+             */
+            if(!mIsItemWon) {
+                declareWinnerImageView.setVisibility(View.GONE);
+            } else {
+                declareWinnerImageView.setOnClickListener(this);
+            }
         }
 
 
         @Override
         public void onClick(View view) {
-            //TODO: Declare winner here
-
+            /**
+             * mark this bid as winner
+             * and close current activity
+             */
+            mPresenter.declareBidAsWinner(bid);
+            ((Activity)mContext).finish();
         }
 
         public void setBid(Bid bid) {

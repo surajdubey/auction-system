@@ -113,4 +113,10 @@ public class ItemDataSource {
         cursor.close();
         return item;
     }
+
+    public void updateItemAsSold(int itemId) {
+        ContentValues values = new ContentValues();
+        values.put(AuctionContract.Item.COLUMN_NAME_IS_ITEM_SOLD, Item.ITEM_SOLD);
+        mDatabase.update(AuctionContract.Item.TABLE_NAME, values, AuctionContract.Item._ID + " = " + itemId, null);
+    }
 }

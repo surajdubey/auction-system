@@ -121,4 +121,12 @@ public class BidDataSource {
         cursor.close();
         return bids;
     }
+
+    public void updateBidStatus(Bid bid, int bidStatus) {
+        ContentValues values = new ContentValues();
+
+        values.put(AuctionContract.Bid.COLUMN_NAME_BID_STATUS, bidStatus);
+
+        mDatabase.update(AuctionContract.Bid.TABLE_NAME, values, AuctionContract.Bid._ID + " = " + bid.getBidId(), null);
+    }
 }

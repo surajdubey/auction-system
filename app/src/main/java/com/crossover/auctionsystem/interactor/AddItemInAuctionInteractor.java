@@ -32,6 +32,9 @@ public class AddItemInAuctionInteractor {
         item.setMinimumBidAmount(minimumBidAmount);
         item.setTargetBidAmount(targetBidAmount);
 
+        mItemDataSource.open();
+        mSellerDataSource.open();
+
         long itemId = mItemDataSource.addItem(item);
         int userId = mPreferencesManager.getUserId();
 

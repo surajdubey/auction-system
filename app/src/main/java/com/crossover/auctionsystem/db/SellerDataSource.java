@@ -77,6 +77,8 @@ public class SellerDataSource {
                 int itemId = cursor.getInt(itemIdIndex);
                 item.setItemId(itemId);
                 items.add(item);
+
+                cursor.moveToNext();
             }
         }
 

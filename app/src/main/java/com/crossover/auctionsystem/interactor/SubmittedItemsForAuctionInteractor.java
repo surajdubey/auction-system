@@ -36,6 +36,7 @@ public class SubmittedItemsForAuctionInteractor {
          */
 
         if(!items.isEmpty()) {
+            mItemDataSource.open();
             for(int index = 0; index< items.size(); index ++) {
                 Item oldItem = items.get(index);
                 Item item = mItemDataSource.getItemDetails(oldItem.getItemId());
@@ -43,6 +44,10 @@ public class SubmittedItemsForAuctionInteractor {
             }
         }
 
+        //close datasources
+        mSellerDataSource.close();
+        mItemDataSource.close();
+        
         return items;
     }
 }

@@ -47,9 +47,10 @@ public class AddItemInAuctionPresenter {
         int targetBidAmount = Integer.parseInt(targetAmountText);
 
         mInteractor.addItem(name, description, minimumBidAmount, targetBidAmount);
-        mView.showBidSuccessMessage();
+        mView.showItemAddedSuccessMessage();
 
-        mView.startViewItemsInAuctionActivity();
+//        mView.startViewItemsInAuctionActivity();
+        mView.closeCurrentActivity();
     }
 
 }

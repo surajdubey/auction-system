@@ -23,34 +23,45 @@ import java.util.ArrayList;
 public class SubmittedItemsRecyclerViewAdapter extends RecyclerView.Adapter<SubmittedItemsRecyclerViewAdapter.ItemViewHolder> {
 
     private Context mContext;
-    private ArrayList<Item> items;
+    private ArrayList<Item> mItems;
 
     private static final int ITEM_SOLD_VIEW_TYPE = 0;
     private static final int ITEM_NOT_SOLD_VIEW_TYPE = 1;
 
     public SubmittedItemsRecyclerViewAdapter(Context context, ArrayList<Item> items) {
         this.mContext = context;
-        this.items = items;
+        this.mItems = items;
     }
 
     @Override
     public ItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        int layuotResId;
+        int layoutResId;
 
         if(viewType == ITEM_SOLD_VIEW_TYPE) {
-            layuotResId = R.layout.row_submitted_items_sold;
+            layoutResId = R.layout.row_submitted_items_sold;
         } else {
-            layuotResId = R.layout.row_submitted_items_not_sold;
+            layoutResId = R.layout.row_submitted_items_not_sold;
         }
 
-        View itemView = LayoutInflater.from(mContext).inflate(layuotResId, parent, false);
+        View itemView = LayoutInflater.from(mContext).inflate(layoutResId, parent, false);
         ItemViewHolder viewHolder = new ItemViewHolder(itemView);
         return viewHolder;
     }
 
     @Override
+    public int getItemViewType(int position) {
+        Item item = mItems.get(position);
+
+        if(item.isItemSold()) {
+            return ITEM_SOLD_VIEW_TYPE;
+        } else {
+            return ITEM_NOT_SOLD_VIEW_TYPE;
+        }
+    }
+
+    @Override
     public void onBindViewHolder(ItemViewHolder holder, int position) {
-        Item item = items.get(position);
+        Item item = mItems.get(position);
 
         holder.setItem(item);
 
@@ -60,7 +71,7 @@ public class SubmittedItemsRecyclerViewAdapter extends RecyclerView.Adapter<Subm
 
     @Override
     public int getItemCount() {
-        return 0;
+        return mItems.size();
     }
 
     class ItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {

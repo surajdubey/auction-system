@@ -115,6 +115,8 @@ public class BidDataSource {
                 bid.setBidAmount(cursor.getInt(bidAmountIndex));
                 bid.setBidStatus(cursor.getInt(bidStatusIndex));
                 bids.add(bid);
+
+                cursor.moveToNext();
             }
         }
 

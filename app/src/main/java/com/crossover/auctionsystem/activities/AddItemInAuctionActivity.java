@@ -6,10 +6,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.crossover.auctionsystem.R;
 import com.crossover.auctionsystem.interactor.AddItemInAuctionInteractor;
 import com.crossover.auctionsystem.presenter.AddItemInAuctionPresenter;
+import com.crossover.auctionsystem.utils.ToolbarUtil;
 import com.crossover.auctionsystem.view.AddItemInAuctionView;
 
 public class AddItemInAuctionActivity extends AppCompatActivity implements AddItemInAuctionView {
@@ -33,6 +35,8 @@ public class AddItemInAuctionActivity extends AppCompatActivity implements AddIt
         mTargetBiddingAmountEditText = (EditText) findViewById(R.id.target_amount_edittext);
         mSubmitItemButton = (Button) findViewById(R.id.submit_item_button);
 
+        setToolbar();
+
         AddItemInAuctionView addItemInAuctionView = this;
         final AddItemInAuctionInteractor addItemInAuctionInteractor = new AddItemInAuctionInteractor(mContext);
         final AddItemInAuctionPresenter addItemInAuctionPresenter = new AddItemInAuctionPresenter(addItemInAuctionView, addItemInAuctionInteractor);
@@ -43,6 +47,11 @@ public class AddItemInAuctionActivity extends AppCompatActivity implements AddIt
                 addItemInAuctionPresenter.submitItem();
             }
         });
+    }
+
+    private void setToolbar() {
+        ToolbarUtil toolbarUtil = new ToolbarUtil(this);
+        toolbarUtil.showToolbarWithBackButton(getString(R.string.add_item));
     }
 
     @Override
@@ -91,7 +100,12 @@ public class AddItemInAuctionActivity extends AppCompatActivity implements AddIt
     }
 
     @Override
-    public void showBidSuccessMessage() {
+    public void showItemAddedSuccessMessage() {
+        Toast.makeText(mContext, R.string.item_added_success_message, Toast.LENGTH_SHORT).show();
+    }
 
+    @Override
+    public void closeCurrentActivity() {
+        finish();
     }
 }

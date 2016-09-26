@@ -23,5 +23,7 @@ public interface AddItemInAuctionView {
 
     void startViewItemsInAuctionActivity();
 
-    void showBidSuccessMessage();
+    void showItemAddedSuccessMessage();
+
+    void closeCurrentActivity();
 }

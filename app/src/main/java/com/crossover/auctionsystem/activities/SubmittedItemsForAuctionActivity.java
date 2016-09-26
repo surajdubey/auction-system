@@ -93,4 +93,17 @@ public class SubmittedItemsForAuctionActivity extends AppCompatActivity implemen
         Intent intent = new Intent(mContext, AddItemInAuctionActivity.class);
         startActivity(intent);
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        mSubmittedItemsForAuctionPresenter.listAllSubmittedItems();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        mSubmittedItemsForAuctionPresenter.listAllSubmittedItems();
+    }
 }

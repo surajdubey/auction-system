@@ -47,4 +47,5 @@
     <string name="submitted_items_in_auction">Submitted Items In Auction</string>
     <string name="no_items_submitted_for_auction">You have not submitted any items for auction. \n Press Add to add new item.</string>
     <string name="add_item">Add Item</string>
+    <string name="item_added_success_message">Item is added successfully</string>
 </resources>

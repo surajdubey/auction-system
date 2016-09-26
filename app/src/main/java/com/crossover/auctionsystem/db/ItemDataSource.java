@@ -51,7 +51,7 @@ public class ItemDataSource {
 
         Cursor cursor = mDatabase.rawQuery(findQuery, null);
 
-        if (cursor.moveToFirst()) {
+        if (!cursor.isAfterLast()) {
 
             int itemNameIndex = cursor.getColumnIndex(AuctionContract.Item.COLUMN_NAME_ITEM_NAME);
             int itemDescriptionIndex = cursor.getColumnIndex(AuctionContract.Item.COLUMN_NAME_DESCRIPTION);
@@ -59,7 +59,7 @@ public class ItemDataSource {
             int itemMinimumBidAmountIndex = cursor.getColumnIndex(AuctionContract.Item.COLUMN_NAME_MINIMUM_BID_AMOUNT);
             int targetBidAmountIndex = cursor.getColumnIndex(AuctionContract.Item.COLUMN_NAME_TARGET_BID_AMOUNT);
 
-            while (cursor.moveToNext()) {
+            while (!cursor.isAfterLast()) {
                 Item item = new Item();
 
                 item.setItemName(cursor.getString(itemNameIndex));
@@ -73,6 +73,8 @@ public class ItemDataSource {
                 item.setTargetBidAmount(cursor.getInt(targetBidAmountIndex));
 
                 items.add(item);
+
+                cursor.moveToNext();
             }
         }
 
@@ -82,7 +84,7 @@ public class ItemDataSource {
 
     public Item getItemDetails(int itemId) {
         String findQuery = "SELECT * FROM " + AuctionContract.Item.TABLE_NAME + " WHERE " +
-                AuctionContract.Item.COLUMN_NAME_IS_ITEM_SOLD + " = " + Item.ITEM_SOLD;
+                AuctionContract.Item._ID + " = " + itemId;
 
         Cursor cursor = mDatabase.rawQuery(findQuery, null);
 

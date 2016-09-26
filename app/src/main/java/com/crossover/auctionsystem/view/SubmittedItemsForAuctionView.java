@@ -10,4 +10,6 @@ import java.util.ArrayList;
 
 public interface SubmittedItemsForAuctionView {
     void setSubmittedItems(ArrayList<Item> items);
+
+    void showNoItemSubmitted();
 }

@@ -33,6 +33,11 @@ public class ViewBidsOnItemPresenter {
         int itemId = mItem.getItemId();
         boolean isItemWon = mItem.isItemSold();
         ArrayList<Bid> bids = mInteractor.getAllBids(itemId);
-        mView.showBids(bids, isItemWon);
+
+        if(bids.isEmpty()) {
+            mView.showNoItemAvailableForBid();
+        } else {
+            mView.showBids(bids, isItemWon);
+        }
     }
 }

@@ -13,4 +13,6 @@ public interface ItemsInAuctionView {
     void showNoItemsAvailableForAuctionView();
 
     void showItemForAuction(ArrayList<Item> items);
+
+    void startSignupActivity();
 }

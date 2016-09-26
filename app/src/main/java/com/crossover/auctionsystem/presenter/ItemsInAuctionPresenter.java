@@ -28,4 +28,9 @@ public class ItemsInAuctionPresenter {
             mView.showItemForAuction(items);
         }
     }
+
+    public void logout() {
+        mInteractor.clearPreferences();
+        mView.startSignupActivity();
+    }
 }

@@ -1,0 +1,15 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+    <item
+        android:id="@+id/itemViewAllItemsInAuction"
+        android:title="@string/view_items_in_auction" />
+
+    <item
+        android:id="@+id/itemSubmittedItemsInAuction"
+        android:title="@string/submitted_items_in_auction" />
+
+    <item
+        android:id="@+id/itemLogout"
+        android:title="@string/logout"
+        />
+</menu>

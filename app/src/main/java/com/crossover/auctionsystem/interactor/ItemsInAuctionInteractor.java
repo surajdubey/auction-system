@@ -7,6 +7,7 @@ import com.crossover.auctionsystem.db.ItemDataSource;
 import com.crossover.auctionsystem.db.SellerDataSource;
 import com.crossover.auctionsystem.db.UserDataSource;
 import com.crossover.auctionsystem.model.Item;
+import com.crossover.auctionsystem.utils.PreferencesManager;
 
 import java.util.ArrayList;
 
@@ -19,12 +20,14 @@ public class ItemsInAuctionInteractor {
     private SellerDataSource mSellerDataSource;
     private UserDataSource mUserDataSource;
     private BidDataSource mBidDataSource;
+    private PreferencesManager mPreferencesManager;
 
     public ItemsInAuctionInteractor(Context context) {
         mItemDataSource = new ItemDataSource(context);
         mSellerDataSource = new SellerDataSource(context);
         mUserDataSource = new UserDataSource(context);
         mBidDataSource = new BidDataSource(context);
+        mPreferencesManager = PreferencesManager.initializeInstance(context);
     }
 
     public ArrayList<Item> fetchAllItems() {
@@ -76,5 +79,9 @@ public class ItemsInAuctionInteractor {
 
         mBidDataSource.close();
         return winnerBidAmount;
+    }
+
+    public void clearPreferences() {
+        mPreferencesManager.clearAllValues();
     }
 }

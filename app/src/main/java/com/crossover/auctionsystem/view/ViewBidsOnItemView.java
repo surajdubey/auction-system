@@ -10,4 +10,6 @@ import java.util.ArrayList;
 
 public interface ViewBidsOnItemView {
     void showBids(ArrayList<Bid> bids, boolean isItemWon);
+
+    void showNoItemAvailableForBid();
 }

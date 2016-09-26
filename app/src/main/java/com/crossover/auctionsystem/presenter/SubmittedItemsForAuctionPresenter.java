@@ -22,6 +22,10 @@ public class SubmittedItemsForAuctionPresenter {
     public void listAllSubmittedItems() {
         ArrayList<Item> items = mInteractor.listAllSubmittedItems();
 
-        mView.setSubmittedItems(items);
+        if(items.isEmpty()) {
+            mView.showNoItemSubmitted();
+        } else {
+            mView.setSubmittedItems(items);
+        }
     }
 }

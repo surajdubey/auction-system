@@ -24,7 +24,8 @@ class DatabaseHelper extends SQLiteOpenHelper {
             AuctionContract.Item.COLUMN_NAME_ITEM_NAME + " TEXT, " +
             AuctionContract.Item.COLUMN_NAME_DESCRIPTION + " TEXT , " +
             AuctionContract.Item.COLUMN_NAME_MINIMUM_BID_AMOUNT + " INTEGER , " +
-            AuctionContract.Item.COLUMN_NAME_TARGET_BID_AMOUNT + " INTEGER )";
+            AuctionContract.Item.COLUMN_NAME_TARGET_BID_AMOUNT + " INTEGER, " +
+            AuctionContract.Item.COLUMN_NAME_IS_ITEM_SOLD + " INTEGER )";
 
     private static final String SQL_CREATE_BIDS_TABLE = "CREATE TABLE " +
             AuctionContract.Bid.TABLE_NAME + "(" +
@@ -32,7 +33,7 @@ class DatabaseHelper extends SQLiteOpenHelper {
             AuctionContract.Bid.COLUMN_NAME_USER_ID + " INTEGER, " +
             AuctionContract.Bid.COLUMN_NAME_ITEM_ID + " INTEGER, "+
             AuctionContract.Bid.COLUMN_NAME_BID_AMOUNT + " INTEGER, " +
-            AuctionContract.Bid.COLUMN_NAME_BID_STATUS + " TEXT " +
+            AuctionContract.Bid.COLUMN_NAME_BID_STATUS + " INTEGER, " +
             AuctionContract.Bid.COLUMN_NAME_BID_TIME + " TEXT )";
 
     private static final String SQL_CREATE_SELLERS_TABLE = "CREATE TABLE " +
@@ -56,7 +57,9 @@ class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-//        db.execSQL("DROP TABLE IF EXISTS " + AuctionContract.User.TABLE_NAME);
-//        onCreate(db);
+/*
+        db.execSQL("DROP TABLE IF EXISTS " + AuctionContract.User.TABLE_NAME);
+        onCreate(db);
+*/
     }
 }

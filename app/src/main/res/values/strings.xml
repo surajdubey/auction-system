@@ -40,4 +40,11 @@
     <string name="bid_amount">Bid Amount</string>
     <string name="declare_as_winner">Declare As Winner</string>
     <string name="signup">Signup</string>
+    <string name="no_items_available_for_auction">No Items available for Auction Now</string>
+    <string name="items_available_for_auction">Items Available for Auction</string>
+    <string name="logout">Logout</string>
+    <string name="view_items_in_auction">View Items in Auction</string>
+    <string name="submitted_items_in_auction">Submitted Items In Auction</string>
+    <string name="no_items_submitted_for_auction">You have not submitted any items for auction. \n Press Add to add new item.</string>
+    <string name="add_item">Add Item</string>
 </resources>

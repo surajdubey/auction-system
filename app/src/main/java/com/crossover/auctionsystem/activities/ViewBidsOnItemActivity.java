@@ -1,10 +1,12 @@
 package com.crossover.auctionsystem.activities;
 
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.TextView;
 
 import com.crossover.auctionsystem.R;
 import com.crossover.auctionsystem.adapter.ViewBidsOnItemRecyclerViewAdapter;
@@ -23,6 +25,7 @@ public class ViewBidsOnItemActivity extends AppCompatActivity implements ViewBid
     private Context mContext = this;
     private RecyclerView mBidOnItemRecyclerView;
     private ViewBidsOnItemPresenter mPresenter;
+    private TextView mNoItemAvailableTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +36,10 @@ public class ViewBidsOnItemActivity extends AppCompatActivity implements ViewBid
         ViewBidsOnItemInteractor viewBidsOnItemInteractor = new ViewBidsOnItemInteractor(mContext);
 
         mPresenter = new ViewBidsOnItemPresenter(viewBidsOnItemView, viewBidsOnItemInteractor);
+        mNoItemAvailableTextView = (TextView) findViewById(R.id.no_item_available_textview);
 
         setItemOnPresenter();
+
         setBidsOnItemRecyclerView();
     }
 
@@ -51,10 +56,15 @@ public class ViewBidsOnItemActivity extends AppCompatActivity implements ViewBid
         mPresenter.setItem(item);
     }
 
-
     @Override
     public void showBids(ArrayList<Bid> bids, boolean isItemWon) {
         ViewBidsOnItemRecyclerViewAdapter adapter = new ViewBidsOnItemRecyclerViewAdapter(mContext, mPresenter, bids, isItemWon);
         mBidOnItemRecyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public void showNoItemAvailableForBid() {
+        mBidOnItemRecyclerView.setVisibility(View.GONE);
+        mNoItemAvailableTextView.setVisibility(View.VISIBLE);
     }
 }

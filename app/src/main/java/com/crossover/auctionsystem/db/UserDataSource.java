@@ -42,7 +42,7 @@ public class UserDataSource {
     public int userLogin(User user) {
         String findQuery = "SELECT * FROM " + AuctionContract.User.TABLE_NAME + " WHERE " +
                 AuctionContract.User.COLUMN_NAME_USERNAME + " = '" + user.getUsername() +
-                "' AND " + AuctionContract.User.COLUMN_NAME_PASSWORD + " = '" + user.getPassword();
+                "' AND " + AuctionContract.User.COLUMN_NAME_PASSWORD + " = '" + user.getPassword() + "'";
 
         Cursor cursor = db.rawQuery(findQuery, null);
 
@@ -64,7 +64,7 @@ public class UserDataSource {
 
     public int getUserIdIfUserExists(User user) {
         String findQuery = "SELECT * FROM " + AuctionContract.User.TABLE_NAME + " WHERE " +
-                AuctionContract.User.COLUMN_NAME_USERNAME + " = '" + user.getUsername();
+                AuctionContract.User.COLUMN_NAME_USERNAME + " = '" + user.getUsername() + "'";
         Cursor cursor = db.rawQuery(findQuery, null);
 
         /**

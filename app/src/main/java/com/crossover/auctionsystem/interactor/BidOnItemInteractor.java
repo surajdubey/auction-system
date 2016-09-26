@@ -2,7 +2,6 @@ package com.crossover.auctionsystem.interactor;
 
 import android.content.Context;
 
-import com.crossover.auctionsystem.db.AuctionContract;
 import com.crossover.auctionsystem.db.BidDataSource;
 import com.crossover.auctionsystem.model.Bid;
 import com.crossover.auctionsystem.utils.DateTimeUtil;

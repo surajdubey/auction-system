@@ -26,8 +26,8 @@ public class SignupInteractor {
         User user = new User();
         user.setUsername(username);
 
-        boolean userExists = mUserDataSource.getUserIdIfUserExists(user) == UserDataSource.INVALID_USER_ID;
-        ;
+        boolean userExists = mUserDataSource.getUserIdIfUserExists(user) != UserDataSource.INVALID_USER_ID;
+
         mUserDataSource.close();
         return userExists;
     }

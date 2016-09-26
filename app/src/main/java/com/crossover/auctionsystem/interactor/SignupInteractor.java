@@ -32,7 +32,7 @@ public class SignupInteractor {
         return userExists;
     }
 
-    public void addUser(String username, String password) {
+    public void addUser(String username, String displayName, String password) {
 
         String currentTime = new DateTimeUtil().getCurrentDateTime();
 
@@ -40,6 +40,7 @@ public class SignupInteractor {
 
         User user = new User();
         user.setUsername(username);
+        user.setName(displayName);
         user.setPassword(password);
         user.setCreatedAt(currentTime);
 

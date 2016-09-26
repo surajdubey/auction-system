@@ -43,7 +43,8 @@ public class SellerDataSource {
     }
 
     public int getSellerUserIdForItem(int itemId) {
-        String findQuery = "SELECT " + AuctionContract.Seller.COLUMN_NAME_USER_ID + " WHERE " +
+        String findQuery = "SELECT " + AuctionContract.Seller.COLUMN_NAME_USER_ID + " FROM " +
+                AuctionContract.Seller.TABLE_NAME + " WHERE " +
                 AuctionContract.Seller.COLUMN_NAME_ITEM_ID + " = " + itemId;
 
         Cursor cursor = mDatabase.rawQuery(findQuery, null);
@@ -52,7 +53,7 @@ public class SellerDataSource {
 
         if(cursor.moveToFirst()) {
             int userIdIndex = cursor.getColumnIndex(AuctionContract.Seller.COLUMN_NAME_USER_ID);
-            userId = cursor.getInt(cursor.getInt(userIdIndex));
+            userId = cursor.getInt(userIdIndex);
         }
 
         cursor.close();

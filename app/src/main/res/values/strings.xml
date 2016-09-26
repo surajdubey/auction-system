@@ -13,12 +13,12 @@
     <string name="user_exists_error">User already exists</string>
     <string name="invalid_credentials_error">Username or Password is invalid</string>
 
-    <string name="item_name">Item Name : </string>
-    <string name="description">Description :</string>
-    <string name="sold_by">Sold By : </string>
-    <string name="minimum_bid_amount">Minimum Bid Amount : </string>
-    <string name="bid_winner_amount_message">Won at amount : </string>
-    <string name="winner">Winner :</string>
+    <string name="item_name">Item Name : &#160;</string>
+    <string name="description">Description : &#160;</string>
+    <string name="sold_by">Sold By : &#160;</string>
+    <string name="minimum_bid_amount">Minimum Bid Amount : &#160;</string>
+    <string name="bid_winner_amount_message">Won at amount : &#160;</string>
+    <string name="winner">Winner : &#160;</string>
     <string name="enter_item_name">Enter Item Name</string>
     <string name="enter_item_description">Enter Item Description</string>
     <string name="minimum_amount_for_bidding">Minimum Amount For Bidding</string>
@@ -48,4 +48,7 @@
     <string name="no_items_submitted_for_auction">You have not submitted any items for auction. \n Press Add to add new item.</string>
     <string name="add_item">Add Item</string>
     <string name="item_added_success_message">Item is added successfully</string>
+    <string name="bids_placed">Bids Placed</string>
+    <string name="place_bid">Place Bid</string>
+    <string name="no_bids_placed">No Bids placed so far on selected item</string>
 </resources>

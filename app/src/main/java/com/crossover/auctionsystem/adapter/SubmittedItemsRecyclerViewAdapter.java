@@ -84,6 +84,7 @@ public class SubmittedItemsRecyclerViewAdapter extends RecyclerView.Adapter<Subm
             super(itemView);
             nameTextView = (TextView) itemView.findViewById(R.id.item_name_textview);
             descriptionTextView = (TextView) itemView.findViewById(R.id.item_description_textview);
+            itemView.setOnClickListener(this);
         }
 
         @Override

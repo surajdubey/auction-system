@@ -15,6 +15,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.crossover.auctionsystem.R;
+import com.crossover.auctionsystem.adapter.ViewBidsOnItemRecyclerViewAdapter;
+import com.crossover.auctionsystem.adapter.ViewItemsInAuctionRecyclerViewAdapter;
 import com.crossover.auctionsystem.interactor.ItemsInAuctionInteractor;
 import com.crossover.auctionsystem.model.Item;
 import com.crossover.auctionsystem.presenter.ItemsInAuctionPresenter;
@@ -96,7 +98,8 @@ public class ViewItemsInAuctionActivity extends AppCompatActivity implements Ite
 
     @Override
     public void showItemForAuction(ArrayList<Item> items) {
-
+        ViewItemsInAuctionRecyclerViewAdapter adapter = new ViewItemsInAuctionRecyclerViewAdapter(mContext, items);
+        mItemsInAuctionRecyclerView.setAdapter(adapter);
     }
 
     @Override

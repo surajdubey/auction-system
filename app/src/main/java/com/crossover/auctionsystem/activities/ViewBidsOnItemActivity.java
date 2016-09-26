@@ -36,7 +36,7 @@ public class ViewBidsOnItemActivity extends AppCompatActivity implements ViewBid
         ViewBidsOnItemInteractor viewBidsOnItemInteractor = new ViewBidsOnItemInteractor(mContext);
 
         mPresenter = new ViewBidsOnItemPresenter(viewBidsOnItemView, viewBidsOnItemInteractor);
-        mNoItemAvailableTextView = (TextView) findViewById(R.id.no_item_available_textview);
+        mNoItemAvailableTextView = (TextView) findViewById(R.id.no_bids_textview);
 
         setItemOnPresenter();
 

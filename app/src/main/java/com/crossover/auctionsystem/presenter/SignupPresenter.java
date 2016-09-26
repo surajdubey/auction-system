@@ -41,7 +41,7 @@ public class SignupPresenter {
             return;
         }
 
-        mInteractor.addUser(username, password);
+        mInteractor.addUser(username, name, password);
 
         mView.startItemsAvailableForBidActivity();
     }

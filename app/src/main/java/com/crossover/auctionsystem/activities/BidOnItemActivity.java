@@ -12,6 +12,7 @@ import com.crossover.auctionsystem.R;
 import com.crossover.auctionsystem.interactor.BidOnItemInteractor;
 import com.crossover.auctionsystem.model.Item;
 import com.crossover.auctionsystem.presenter.BidOnItemPresenter;
+import com.crossover.auctionsystem.utils.ToolbarUtil;
 import com.crossover.auctionsystem.view.BidOnItemView;
 
 import org.greenrobot.eventbus.EventBus;
@@ -37,6 +38,8 @@ public class BidOnItemActivity extends AppCompatActivity implements BidOnItemVie
         mBidAmountEditText = (EditText) findViewById(R.id.bid_amount_edittext);
         mSubmitBidButton = (Button) findViewById(R.id.submit_bid_button);
 
+        setToolbar();
+
         BidOnItemView bidOnItemView = this;
         BidOnItemInteractor bidOnItemInteractor = new BidOnItemInteractor(mContext);
 
@@ -51,6 +54,11 @@ public class BidOnItemActivity extends AppCompatActivity implements BidOnItemVie
 
         Item item = EventBus.getDefault().getStickyEvent(Item.class);
         bidOnItemPresenter.setItem(item);
+    }
+
+    private void setToolbar() {
+        ToolbarUtil toolbarUtil = new ToolbarUtil(this);
+        toolbarUtil.showToolbarWithBackButton(getString(R.string.place_bid));
     }
 
     @Override

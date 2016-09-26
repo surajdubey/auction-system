@@ -1,6 +1,7 @@
 package com.crossover.auctionsystem.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.crossover.auctionsystem.R;
+import com.crossover.auctionsystem.activities.BidOnItemActivity;
 import com.crossover.auctionsystem.interactor.ItemsInAuctionInteractor;
 import com.crossover.auctionsystem.model.Item;
 
@@ -90,7 +92,7 @@ public class ViewItemsInAuctionRecyclerViewAdapter extends RecyclerView.Adapter<
 
     class ItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        private Item mItem;
+        private Item item;
         private TextView nameTextView;
         private TextView descriptionTextView;
 
@@ -109,15 +111,20 @@ public class ViewItemsInAuctionRecyclerViewAdapter extends RecyclerView.Adapter<
             sellerNameTextView = (TextView) itemView.findViewById(R.id.seller_name_textview);
             winnerNameTextView = (TextView) itemView.findViewById(R.id.item_winner_name_textview);
             winnerAmountTextView = (TextView) itemView.findViewById(R.id.item_winner_amount_textview);
+
+            itemView.setOnClickListener(this);
         }
 
         public void setItem(Item item) {
-            this.mItem = item;
+            this.item = item;
         }
 
         @Override
         public void onClick(View view) {
-
+            if(!item.isItemSold()) {
+                Intent intent = new Intent(mContext, BidOnItemActivity.class);
+                mContext.startActivity(intent);
+            }
         }
     }
 }

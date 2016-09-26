@@ -47,12 +47,13 @@ public class ItemDataSource {
         ArrayList<Item> items = new ArrayList<>();
 
         String findQuery = "SELECT * FROM " + AuctionContract.Item.TABLE_NAME + " WHERE " +
-                AuctionContract.Item.COLUMN_NAME_IS_ITEM_SOLD + " = " + Item.ITEM_SOLD;
+                AuctionContract.Item.COLUMN_NAME_IS_ITEM_SOLD + " = " + Item.ITEM_NOT_SOLD;
 
         Cursor cursor = mDatabase.rawQuery(findQuery, null);
 
-        if (!cursor.isAfterLast()) {
+        if (cursor.moveToFirst()) {
 
+            int itemIdIndex = cursor.getColumnIndex(AuctionContract.Item._ID);
             int itemNameIndex = cursor.getColumnIndex(AuctionContract.Item.COLUMN_NAME_ITEM_NAME);
             int itemDescriptionIndex = cursor.getColumnIndex(AuctionContract.Item.COLUMN_NAME_DESCRIPTION);
             int itemSoldIndex = cursor.getColumnIndex(AuctionContract.Item.COLUMN_NAME_IS_ITEM_SOLD);
@@ -61,6 +62,8 @@ public class ItemDataSource {
 
             while (!cursor.isAfterLast()) {
                 Item item = new Item();
+
+                item.setItemId(cursor.getInt(itemIdIndex));
 
                 item.setItemName(cursor.getString(itemNameIndex));
 

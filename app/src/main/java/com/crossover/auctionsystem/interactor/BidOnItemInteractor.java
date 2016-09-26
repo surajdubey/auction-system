@@ -43,7 +43,7 @@ public class BidOnItemInteractor {
         /**
          * for bid status, check if this bid is more than or equal to target amount.
          */
-
+        mItemDataSource.open();
         Item item = mItemDataSource.getItemDetails(itemId);
         int targetAmountForItem = item.getTargetBidAmount();
 
@@ -59,9 +59,13 @@ public class BidOnItemInteractor {
         } else {
             bidStatus = Bid.BID_NO_RESULT;
         }
+
         bid.setBidStatus(bidStatus);
         bid.setBidTime(currentTime);
 
         mBidDataSource.addBid(bid);
+
+        mBidDataSource.close();
+        mItemDataSource.close();
     }
 }

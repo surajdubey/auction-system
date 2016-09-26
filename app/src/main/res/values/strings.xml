@@ -51,4 +51,6 @@
     <string name="bids_placed">Bids Placed</string>
     <string name="place_bid">Place Bid</string>
     <string name="no_bids_placed">No Bids placed so far on selected item</string>
+
+    <string name="bid_added_success_message">Bid is added successfully</string>
 </resources>

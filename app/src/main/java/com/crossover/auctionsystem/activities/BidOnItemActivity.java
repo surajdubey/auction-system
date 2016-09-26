@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.crossover.auctionsystem.R;
 import com.crossover.auctionsystem.interactor.BidOnItemInteractor;
@@ -90,5 +91,15 @@ public class BidOnItemActivity extends AppCompatActivity implements BidOnItemVie
     @Override
     public void showDescription(String itemDescription) {
         mDescriptionTextView.setText(itemDescription);
+    }
+
+    @Override
+    public void showBidAddedSuccessMessage() {
+        Toast.makeText(mContext, getString(R.string.bid_added_success_message), Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void closeCurrentActivity() {
+        finish();
     }
 }

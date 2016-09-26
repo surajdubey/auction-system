@@ -44,5 +44,8 @@ public class BidOnItemPresenter {
 
         int itemId = mItem.getItemId();
         mInteractor.addBid(bidAmount, itemId);
+
+        mView.showBidAddedSuccessMessage();
+        mView.closeCurrentActivity();
     }
 }

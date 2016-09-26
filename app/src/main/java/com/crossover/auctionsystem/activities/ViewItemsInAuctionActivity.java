@@ -15,15 +15,12 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.crossover.auctionsystem.R;
-import com.crossover.auctionsystem.adapter.ViewBidsOnItemRecyclerViewAdapter;
 import com.crossover.auctionsystem.adapter.ViewItemsInAuctionRecyclerViewAdapter;
 import com.crossover.auctionsystem.interactor.ItemsInAuctionInteractor;
 import com.crossover.auctionsystem.model.Item;
 import com.crossover.auctionsystem.presenter.ItemsInAuctionPresenter;
 import com.crossover.auctionsystem.utils.ToolbarUtil;
 import com.crossover.auctionsystem.view.ItemsInAuctionView;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 

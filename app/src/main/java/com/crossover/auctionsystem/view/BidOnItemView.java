@@ -17,4 +17,8 @@ public interface BidOnItemView {
     void showName(String itemName);
 
     void showDescription(String itemDescription);
+
+    void showBidAddedSuccessMessage();
+
+    void closeCurrentActivity();
 }

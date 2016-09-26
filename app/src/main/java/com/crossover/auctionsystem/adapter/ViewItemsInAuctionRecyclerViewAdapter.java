@@ -13,6 +13,8 @@ import com.crossover.auctionsystem.activities.BidOnItemActivity;
 import com.crossover.auctionsystem.interactor.ItemsInAuctionInteractor;
 import com.crossover.auctionsystem.model.Item;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.util.ArrayList;
 
 /**
@@ -55,6 +57,7 @@ public class ViewItemsInAuctionRecyclerViewAdapter extends RecyclerView.Adapter<
 
         Item item = mItems.get(position);
 
+        holder.setItem(item);
         holder.nameTextView.setText(item.getItemName());
         holder.descriptionTextView.setText(item.getItemDescription());
 
@@ -122,6 +125,9 @@ public class ViewItemsInAuctionRecyclerViewAdapter extends RecyclerView.Adapter<
         @Override
         public void onClick(View view) {
             if(!item.isItemSold()) {
+
+                //put seletected item on Bus
+                EventBus.getDefault().postSticky(item);
                 Intent intent = new Intent(mContext, BidOnItemActivity.class);
                 mContext.startActivity(intent);
             }

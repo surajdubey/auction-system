@@ -22,10 +22,6 @@ public class ToolbarUtil {
         TextView toolbarTitleTextView = (TextView) toolbar.findViewById(R.id.toolbar_title_textview);
         toolbarTitleTextView.setText(toolbarTitle);
 
-        /**
-         * get AppCompatActivity
-         */
-
         mActivity.setSupportActionBar(toolbar);
 
         ActionBar actionBar = mActivity.getSupportActionBar();

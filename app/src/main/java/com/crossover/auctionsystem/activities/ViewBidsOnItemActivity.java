@@ -14,6 +14,7 @@ import com.crossover.auctionsystem.interactor.ViewBidsOnItemInteractor;
 import com.crossover.auctionsystem.model.Bid;
 import com.crossover.auctionsystem.model.Item;
 import com.crossover.auctionsystem.presenter.ViewBidsOnItemPresenter;
+import com.crossover.auctionsystem.utils.ToolbarUtil;
 import com.crossover.auctionsystem.view.ViewBidsOnItemView;
 
 import org.greenrobot.eventbus.EventBus;
@@ -38,9 +39,16 @@ public class ViewBidsOnItemActivity extends AppCompatActivity implements ViewBid
         mPresenter = new ViewBidsOnItemPresenter(viewBidsOnItemView, viewBidsOnItemInteractor);
         mNoItemAvailableTextView = (TextView) findViewById(R.id.no_bids_textview);
 
+        setToolbar();
+
         setItemOnPresenter();
 
         setBidsOnItemRecyclerView();
+    }
+
+    private void setToolbar() {
+        ToolbarUtil toolbarUtil = new ToolbarUtil(this);
+        toolbarUtil.showToolbarWithBackButton(getString(R.string.placed_bids_by_users));
     }
 
     private void setBidsOnItemRecyclerView() {

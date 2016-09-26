@@ -53,4 +53,6 @@
     <string name="no_bids_placed">No Bids placed so far on selected item</string>
 
     <string name="bid_added_success_message">Bid is added successfully</string>
+    <string name="view_placed_bids">View Placed Bids</string>
+    <string name="placed_bids_by_users">Placed bids by users</string>
 </resources>

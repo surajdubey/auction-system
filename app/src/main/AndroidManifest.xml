@@ -43,7 +43,9 @@
             android:name=".activities.ViewBidsOnItemActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".activities.MyBidsActivity"/>
+        <activity android:name=".activities.MyBidsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
         <!-- services used -->
         <service android:name=".service.RandomBidOnItemService" />

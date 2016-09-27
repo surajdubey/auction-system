@@ -57,4 +57,9 @@
     <string name="placed_bids_by_users">Placed bids by users</string>
     <string name="target_amount_less_than_minimum_amount_error">Target Amount should not be less than minimum amount</string>
     <string name="bid_winner_message">Bid declared as winner</string>
+    <string name="my_bids">My Bids</string>
+    <string name="you_have_won_this_auction">You have won this auction</string>
+    <string name="no_bid_by_user">You have not placed any bid on any item</string>
+    <string name="view_my_bids">View My Bids</string>
+    <string name="item_description">Item Description :</string>
 </resources>

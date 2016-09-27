@@ -32,6 +32,7 @@ public class ViewItemsInAuctionActivity extends AppCompatActivity implements Ite
     private TextView mNoItemAvailableForAuctionTextView;
 
     private ItemsInAuctionPresenter mItemsInAuctionPresenter;
+    private DrawerLayout mDrawerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,10 +69,10 @@ public class ViewItemsInAuctionActivity extends AppCompatActivity implements Ite
 
     private void setNavigationView() {
         NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_view);
-        DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
-        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, 0, 0) {
+        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, 0, 0) {
             @Override
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
@@ -84,7 +85,7 @@ public class ViewItemsInAuctionActivity extends AppCompatActivity implements Ite
         };
 
         navigationView.setNavigationItemSelectedListener(this);
-        drawerLayout.addDrawerListener(actionBarDrawerToggle);
+        mDrawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
     }
 
@@ -120,9 +121,27 @@ public class ViewItemsInAuctionActivity extends AppCompatActivity implements Ite
             case R.id.itemSubmittedItemsInAuction: startSubmittedItemsInAuctionActivity();
                 break;
 
+            case R.id.itemViewMyBids : startMyBidsActivity();
+                break;
+
             case R.id.itemLogout: logout();
+                break;
+
+            default:
+                break;
         }
-        return false;
+
+        /**
+         * close drawer
+         */
+        mDrawerLayout.closeDrawers();
+
+        return true;
+    }
+
+    private void startMyBidsActivity() {
+        Intent intent = new Intent(mContext, MyBidsActivity.class);
+        startActivity(intent);
     }
 
     private void startSubmittedItemsInAuctionActivity() {

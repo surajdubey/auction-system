@@ -28,7 +28,7 @@ public class BidDataSource {
     }
 
     public void close() {
-        if(mDatabase!=null) {
+        if (mDatabase != null) {
             mDatabase.close();
         }
     }
@@ -66,7 +66,7 @@ public class BidDataSource {
 
         Cursor cursor = mDatabase.rawQuery(findQuery, null);
 
-        if(cursor.moveToFirst()) {
+        if (cursor.moveToFirst()) {
             int userIdIndex = cursor.getColumnIndex(AuctionContract.Bid.COLUMN_NAME_USER_ID);
             userId = cursor.getInt(userIdIndex);
         }
@@ -86,7 +86,7 @@ public class BidDataSource {
 
         Cursor cursor = mDatabase.rawQuery(findQuery, null);
 
-        if(cursor.moveToFirst()) {
+        if (cursor.moveToFirst()) {
             int bidAmountIndex = cursor.getColumnIndex(AuctionContract.Bid.COLUMN_NAME_BID_AMOUNT);
             bidAmount = cursor.getInt(bidAmountIndex);
         }
@@ -103,14 +103,14 @@ public class BidDataSource {
 
         Cursor cursor = mDatabase.rawQuery(findQuery, null);
 
-        if(cursor.moveToFirst()) {
+        if (cursor.moveToFirst()) {
 
             int bidIdIndex = cursor.getColumnIndex(AuctionContract.Bid._ID);
             int userIdIndex = cursor.getColumnIndex(AuctionContract.Bid.COLUMN_NAME_USER_ID);
             int bidAmountIndex = cursor.getColumnIndex(AuctionContract.Bid.COLUMN_NAME_BID_AMOUNT);
             int bidStatusIndex = cursor.getColumnIndex(AuctionContract.Bid.COLUMN_NAME_BID_STATUS);
 
-            while(!cursor.isAfterLast()) {
+            while (!cursor.isAfterLast()) {
                 Bid bid = new Bid();
                 bid.setBidId(cursor.getInt(bidIdIndex));
                 bid.setUserId(cursor.getInt(userIdIndex));
@@ -133,5 +133,42 @@ public class BidDataSource {
         values.put(AuctionContract.Bid.COLUMN_NAME_BID_STATUS, bidStatus);
 
         mDatabase.update(AuctionContract.Bid.TABLE_NAME, values, AuctionContract.Bid._ID + " = " + bid.getBidId(), null);
+    }
+
+    public ArrayList<Bid> getAllBidsByUser(int userId) {
+
+        ArrayList<Bid> bids = new ArrayList<>();
+
+        String findQuery = "SELECT * FROM " + AuctionContract.Bid.TABLE_NAME +
+                " WHERE " + AuctionContract.Bid.COLUMN_NAME_USER_ID + " = " + userId;
+
+        Cursor cursor = mDatabase.rawQuery(findQuery, null);
+
+        if (cursor.moveToFirst()) {
+            int bidIdIndex = cursor.getColumnIndex(AuctionContract.Bid._ID);
+            int itemIdIndex = cursor.getColumnIndex(AuctionContract.Bid.COLUMN_NAME_ITEM_ID);
+            int bidAmountIndex = cursor.getColumnIndex(AuctionContract.Bid.COLUMN_NAME_BID_AMOUNT);
+            int bidStatusIndex = cursor.getColumnIndex(AuctionContract.Bid.COLUMN_NAME_BID_STATUS);
+
+            while (!cursor.isAfterLast()) {
+                Bid bid = new Bid();
+                int bidId = cursor.getInt(bidIdIndex);
+                int bidAmount = cursor.getInt(bidAmountIndex);
+                int bidStatus = cursor.getInt(bidStatusIndex);
+                int itemId = cursor.getInt(itemIdIndex);
+
+                bid.setBidId(bidId);
+                bid.setUserId(userId);
+                bid.setItemId(itemId);
+                bid.setBidAmount(bidAmount);
+                bid.setBidStatus(bidStatus);
+                bids.add(bid);
+
+                cursor.moveToNext();
+            }
+        }
+
+        cursor.close();
+        return bids;
     }
 }

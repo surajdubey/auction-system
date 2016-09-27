@@ -72,4 +72,5 @@ public class Bid {
     public void setBidderName(String bidderName) {
         this.bidderName = bidderName;
     }
+
 }

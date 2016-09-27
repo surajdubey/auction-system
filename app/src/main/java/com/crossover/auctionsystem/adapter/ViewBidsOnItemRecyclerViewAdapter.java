@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.crossover.auctionsystem.R;
 import com.crossover.auctionsystem.model.Bid;
@@ -73,7 +74,7 @@ public class ViewBidsOnItemRecyclerViewAdapter extends RecyclerView.Adapter<View
              * if item is won, winner is already declared
              * so hide declare winner image
              */
-            if(!mIsItemWon) {
+            if(mIsItemWon) {
                 declareWinnerImageView.setVisibility(View.GONE);
             } else {
                 declareWinnerImageView.setOnClickListener(this);
@@ -88,6 +89,9 @@ public class ViewBidsOnItemRecyclerViewAdapter extends RecyclerView.Adapter<View
              * and close current activity
              */
             mPresenter.declareBidAsWinner(bid);
+
+            Toast.makeText(mContext, R.string.bid_winner_message, Toast.LENGTH_SHORT).show();
+
             ((Activity)mContext).finish();
         }
 

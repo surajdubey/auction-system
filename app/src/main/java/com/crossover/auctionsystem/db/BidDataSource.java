@@ -105,15 +105,18 @@ public class BidDataSource {
 
         if(cursor.moveToFirst()) {
 
+            int bidIdIndex = cursor.getColumnIndex(AuctionContract.Bid._ID);
             int userIdIndex = cursor.getColumnIndex(AuctionContract.Bid.COLUMN_NAME_USER_ID);
             int bidAmountIndex = cursor.getColumnIndex(AuctionContract.Bid.COLUMN_NAME_BID_AMOUNT);
             int bidStatusIndex = cursor.getColumnIndex(AuctionContract.Bid.COLUMN_NAME_BID_STATUS);
 
             while(!cursor.isAfterLast()) {
                 Bid bid = new Bid();
+                bid.setBidId(cursor.getInt(bidIdIndex));
                 bid.setUserId(cursor.getInt(userIdIndex));
                 bid.setBidAmount(cursor.getInt(bidAmountIndex));
                 bid.setBidStatus(cursor.getInt(bidStatusIndex));
+                bid.setItemId(itemId);
                 bids.add(bid);
 
                 cursor.moveToNext();

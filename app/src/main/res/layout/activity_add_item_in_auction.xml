@@ -38,7 +38,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/ten_dp"
             android:hint="@string/minimum_amount_for_bidding"
-            android:inputType="numberDecimal" />
+            android:inputType="numberDecimal"
+            android:maxLength="8"
+            />
 
         <TextView
             android:layout_width="match_parent"
@@ -53,7 +55,9 @@
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
             android:layout_marginTop="@dimen/ten_dp"
-            android:hint="@string/enter_target_amount" />
+            android:hint="@string/enter_target_amount"
+            android:maxLength="8"
+            />
 
         <Button
             android:id="@+id/submit_item_button"

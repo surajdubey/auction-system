@@ -38,6 +38,7 @@
         android:layout_marginTop="@dimen/ten_dp"
         android:hint="@string/enter_bid_amount"
         android:inputType="numberDecimal"
+        android:maxLength="8"
         />
 
     <LinearLayout

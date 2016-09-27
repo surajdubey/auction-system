@@ -60,6 +60,7 @@ public class ViewBidsOnItemInteractor {
         /**
          * mark item as item sold
          */
+        mItemDataSource.open();
         int itemId = bid.getItemId();
         mItemDataSource.updateItemAsSold(itemId);
     }

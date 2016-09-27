@@ -56,4 +56,5 @@
     <string name="view_placed_bids">View Placed Bids</string>
     <string name="placed_bids_by_users">Placed bids by users</string>
     <string name="target_amount_less_than_minimum_amount_error">Target Amount should not be less than minimum amount</string>
+    <string name="bid_winner_message">Bid declared as winner</string>
 </resources>

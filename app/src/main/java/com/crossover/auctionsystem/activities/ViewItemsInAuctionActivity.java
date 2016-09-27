@@ -19,6 +19,7 @@ import com.crossover.auctionsystem.adapter.ViewItemsInAuctionRecyclerViewAdapter
 import com.crossover.auctionsystem.interactor.ItemsInAuctionInteractor;
 import com.crossover.auctionsystem.model.Item;
 import com.crossover.auctionsystem.presenter.ItemsInAuctionPresenter;
+import com.crossover.auctionsystem.service.RandomBidOnItemService;
 import com.crossover.auctionsystem.utils.ToolbarUtil;
 import com.crossover.auctionsystem.view.ItemsInAuctionView;
 
@@ -104,6 +105,12 @@ public class ViewItemsInAuctionActivity extends AppCompatActivity implements Ite
         Intent intent = new Intent(mContext, SignupActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
+    }
+
+    @Override
+    public void startRandomBidOnItemService() {
+        Intent intent = new Intent(mContext, RandomBidOnItemService.class);
+        startService(intent);
     }
 
     @Override

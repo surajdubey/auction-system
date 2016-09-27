@@ -31,4 +31,14 @@
         android:layout_alignParentRight="true"
         />
 
+    <TextView
+        android:id="@+id/winner_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/ten_dp"
+        android:layout_alignParentRight="true"
+        android:text="@string/winner"
+        android:visibility="gone"
+        />
+
 </RelativeLayout>

@@ -26,6 +26,7 @@ public class ItemsInAuctionPresenter {
             mView.showNoItemsAvailableForAuctionView();
         } else {
             mView.showItemForAuction(items);
+            mView.startRandomBidOnItemService();
         }
     }
 

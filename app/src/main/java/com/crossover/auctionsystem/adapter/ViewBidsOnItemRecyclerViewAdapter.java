@@ -49,6 +49,10 @@ public class ViewBidsOnItemRecyclerViewAdapter extends RecyclerView.Adapter<View
         String bidAmountText = bid.getBidAmount() + "";
         holder.bidAmountTextView.setText(bidAmountText);
         holder.bidderNameTextView.setText(bid.getBidderName());
+
+        if(bid.getBidStatus() == Bid.BID_WINNER) {
+            holder.winnerTextView.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
@@ -61,6 +65,7 @@ public class ViewBidsOnItemRecyclerViewAdapter extends RecyclerView.Adapter<View
         private TextView bidderNameTextView;
         private TextView bidAmountTextView;
         private ImageView declareWinnerImageView;
+        private TextView winnerTextView;
         private Bid bid;
 
         public BidViewHolder(View itemView) {
@@ -69,6 +74,7 @@ public class ViewBidsOnItemRecyclerViewAdapter extends RecyclerView.Adapter<View
             bidderNameTextView = (TextView) itemView.findViewById(R.id.bidder_name_textview);
             bidAmountTextView = (TextView) itemView.findViewById(R.id.bid_amount_textview);
             declareWinnerImageView = (ImageView) itemView.findViewById(R.id.declare_win_imageview);
+            winnerTextView = (TextView) itemView.findViewById(R.id.winner_textview);
 
             /**
              * if item is won, winner is already declared

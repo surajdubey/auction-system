@@ -64,4 +64,5 @@ public class ViewBidsOnItemInteractor {
         int itemId = bid.getItemId();
         mItemDataSource.updateItemAsSold(itemId);
     }
+
 }

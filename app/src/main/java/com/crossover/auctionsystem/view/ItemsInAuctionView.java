@@ -15,4 +15,6 @@ public interface ItemsInAuctionView {
     void showItemForAuction(ArrayList<Item> items);
 
     void startSignupActivity();
+
+    void startRandomBidOnItemService();
 }

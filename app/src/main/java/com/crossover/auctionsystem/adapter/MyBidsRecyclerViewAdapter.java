@@ -11,8 +11,6 @@ import com.crossover.auctionsystem.R;
 import com.crossover.auctionsystem.model.Bid;
 import com.crossover.auctionsystem.model.Item;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
 /**

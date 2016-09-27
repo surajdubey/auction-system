@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 import com.crossover.auctionsystem.R;
 import com.crossover.auctionsystem.interactor.LoginInteractor;
 import com.crossover.auctionsystem.presenter.LoginPresenter;
+import com.crossover.auctionsystem.utils.ToolbarUtil;
 import com.crossover.auctionsystem.view.LoginView;
 
 public class LoginActivity extends AppCompatActivity implements LoginView {
@@ -25,9 +27,6 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     //Login Button
     private Button mLoginButton;
 
-    //sign up Button
-    private Button mSignUpButton;
-
     private Context mContext = this;
 
     @Override
@@ -39,7 +38,8 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         mPasswordEditText = (EditText) findViewById(R.id.password_edittext);
 
         mLoginButton = (Button) findViewById(R.id.login_button);
-        mSignUpButton = (Button) findViewById(R.id.signup_button);
+
+        setToolbar();
 
         final LoginInteractor loginInteractor = new LoginInteractor(mContext);
         LoginView loginView = this;
@@ -52,19 +52,11 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
                 loginPresenter.login();
             }
         });
-
-        mSignUpButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                loginPresenter.signup();
-            }
-        });
     }
 
-    @Override
-    public void signup() {
-        Intent intent = new Intent(mContext, SignupActivity.class);
-        startActivity(intent);
+    private void setToolbar() {
+        ToolbarUtil toolbarUtil = new ToolbarUtil(this);
+        toolbarUtil.showToolbarWithBackButton(getString(R.string.login));
     }
 
     @Override
@@ -97,5 +89,13 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     @Override
     public void showInvalidCredentialsError() {
         Toast.makeText(mContext, getString(R.string.invalid_credentials_error), Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == android.R.id.home) {
+            finish();
+        }
+        return true;
     }
 }

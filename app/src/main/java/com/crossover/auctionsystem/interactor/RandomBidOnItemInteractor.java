@@ -1,7 +1,6 @@
 package com.crossover.auctionsystem.interactor;
 
 import android.content.Context;
-import android.util.Log;
 
 import com.crossover.auctionsystem.db.BidDataSource;
 import com.crossover.auctionsystem.db.ItemDataSource;

@@ -9,7 +9,6 @@
     android:paddingTop="50dp"
     tools:context=".activities.SignupActivity">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -38,26 +37,31 @@
 
         <Button
             android:id="@+id/btnSignUp"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:background="@color/colorAccent"
+            android:background="@color/colorPrimary"
             android:gravity="center"
-            android:text="Sign up"
-            android:textColor="@color/colorWhite" />
+            android:text="@string/sign_up"
+            android:textColor="@color/colorWhite"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/ten_dp"
+            />
 
         <Button
             android:id="@+id/login_button"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:background="@color/colorAccent"
+            android:background="@color/colorPrimary"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:text="@string/navigate_to_login"
-            android:textColor="@color/colorWhite" />
+            android:textColor="@color/colorWhite"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/ten_dp"/>
 
     </LinearLayout>
 

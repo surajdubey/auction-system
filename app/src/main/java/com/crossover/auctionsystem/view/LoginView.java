@@ -5,7 +5,6 @@ package com.crossover.auctionsystem.view;
  */
 
 public interface LoginView {
-    void signup();
 
     void startItemsAvailableForBidActivity();
 

@@ -62,4 +62,5 @@
     <string name="no_bid_by_user">You have not placed any bid on any item</string>
     <string name="view_my_bids">View My Bids</string>
     <string name="item_description">Item Description :</string>
+    <string name="sign_up">Sign up</string>
 </resources>

@@ -150,7 +150,13 @@ public class ViewItemsInAuctionActivity extends AppCompatActivity implements Ite
     }
 
     private void logout() {
+        stopRandomBidOnItemService();
         mItemsInAuctionPresenter.logout();
+    }
+
+    private void stopRandomBidOnItemService() {
+        Intent intent = new Intent(mContext, RandomBidOnItemService.class);
+        stopService(intent);
     }
 
     @Override

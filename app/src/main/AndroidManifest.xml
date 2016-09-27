@@ -18,10 +18,12 @@
         <activity
             android:name=".activities.LoginActivity"
             android:screenOrientation="portrait"
+            android:label="@string/login"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".activities.SignupActivity"
             android:screenOrientation="portrait"
+            android:label="@string/signup"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".activities.ViewItemsInAuctionActivity"

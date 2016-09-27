@@ -103,12 +103,11 @@ public class SignupActivity extends AppCompatActivity implements SignupView {
     public void startLoginActivity() {
         Intent intent = new Intent(mContext, LoginActivity.class);
         startActivity(intent);
-        finish();
     }
 
     @Override
     public void showNameLengthInvalidError() {
-
+        mNameEditText.setError(getString(R.string.name_length_invalid_error));
     }
 
     @Override

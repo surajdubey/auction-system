@@ -35,9 +35,4 @@ public class LoginPresenter {
             mView.showInvalidCredentialsError();
         }
     }
-
-    public void signup() {
-        mView.signup();
-    }
-
 }

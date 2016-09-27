@@ -46,10 +46,14 @@ public class AddItemInAuctionPresenter {
         int minimumBidAmount = Integer.parseInt(minimumAmountText);
         int targetBidAmount = Integer.parseInt(targetAmountText);
 
+        if(targetBidAmount < minimumBidAmount) {
+            mView.showTargetAmountLessThanMinimumAmountError();
+            return;
+        }
+
         mInteractor.addItem(name, description, minimumBidAmount, targetBidAmount);
         mView.showItemAddedSuccessMessage();
 
-//        mView.startViewItemsInAuctionActivity();
         mView.closeCurrentActivity();
     }
 

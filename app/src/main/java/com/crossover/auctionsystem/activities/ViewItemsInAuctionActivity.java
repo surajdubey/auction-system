@@ -126,4 +126,16 @@ public class ViewItemsInAuctionActivity extends AppCompatActivity implements Ite
     private void logout() {
         mItemsInAuctionPresenter.logout();
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mItemsInAuctionPresenter.listAllItems();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        mItemsInAuctionPresenter.listAllItems();
+    }
 }

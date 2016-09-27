@@ -85,6 +85,8 @@ public class SubmittedItemsForAuctionActivity extends AppCompatActivity implemen
 
             case R.id.itemAddItem: startAddItemInAuctionActivity();
                 break;
+
+            default: break;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -97,7 +99,6 @@ public class SubmittedItemsForAuctionActivity extends AppCompatActivity implemen
     @Override
     protected void onResume() {
         super.onResume();
-
         mSubmittedItemsForAuctionPresenter.listAllSubmittedItems();
     }
 

@@ -3,6 +3,7 @@ package com.crossover.auctionsystem.activities;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -95,11 +96,6 @@ public class AddItemInAuctionActivity extends AppCompatActivity implements AddIt
     }
 
     @Override
-    public void startViewItemsInAuctionActivity() {
-
-    }
-
-    @Override
     public void showItemAddedSuccessMessage() {
         Toast.makeText(mContext, R.string.item_added_success_message, Toast.LENGTH_SHORT).show();
     }
@@ -107,5 +103,19 @@ public class AddItemInAuctionActivity extends AppCompatActivity implements AddIt
     @Override
     public void closeCurrentActivity() {
         finish();
+    }
+
+    @Override
+    public void showTargetAmountLessThanMinimumAmountError() {
+        mTargetBiddingAmountEditText.setError(getString(R.string.target_amount_less_than_minimum_amount_error));
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == android.R.id.home) {
+            finish();
+        }
+
+        return true;
     }
 }

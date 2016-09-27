@@ -21,9 +21,9 @@ public interface AddItemInAuctionView {
 
     String getName();
 
-    void startViewItemsInAuctionActivity();
-
     void showItemAddedSuccessMessage();
 
     void closeCurrentActivity();
+
+    void showTargetAmountLessThanMinimumAmountError();
 }

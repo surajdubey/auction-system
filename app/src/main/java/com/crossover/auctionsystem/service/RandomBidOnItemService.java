@@ -12,10 +12,6 @@ import com.crossover.auctionsystem.interactor.RandomBidOnItemInteractor;
 import java.util.Timer;
 import java.util.TimerTask;
 
-/**
- * Created by suraj on 27/9/16.
- */
-
 public class RandomBidOnItemService extends Service {
 
     private Context mContext = this;
@@ -24,6 +20,12 @@ public class RandomBidOnItemService extends Service {
     private Handler mRandomBidHandler = new Handler();
     private RandomBidOnItemInteractor mInteractor;
 
+    private static final long MILLIS_IN_SECOND = 1000;
+    private static final long SECONDS_IN_MINUTE = 60;
+    private static final long PERIOD_IN_MINUTE = 2;
+
+    private static final long DELAY_IN_MILLIS = 0;
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -31,17 +33,13 @@ public class RandomBidOnItemService extends Service {
     }
 
     private void startService() {
-        long delayInSeconds = 0;
 
-        long millisInSeconds = 1000;
-        long secondsInMinutes = 10;
-        long periodInMinutes  = 1;
-        long periodInMillis = periodInMinutes * secondsInMinutes * millisInSeconds;
+        long periodInMillis = PERIOD_IN_MINUTE * SECONDS_IN_MINUTE * MILLIS_IN_SECOND;
 
         RandomBidTimerTask randomBidTimerTask = new RandomBidTimerTask();
 
         mInteractor = new RandomBidOnItemInteractor(mContext);
-        mTimer.scheduleAtFixedRate(randomBidTimerTask, delayInSeconds, periodInMillis);
+        mTimer.scheduleAtFixedRate(randomBidTimerTask, DELAY_IN_MILLIS, periodInMillis);
     }
 
     @Nullable

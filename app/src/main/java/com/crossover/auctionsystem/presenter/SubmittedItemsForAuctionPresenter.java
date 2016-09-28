@@ -13,6 +13,7 @@ import java.util.ArrayList;
 public class SubmittedItemsForAuctionPresenter {
     private SubmittedItemsForAuctionView mView;
     private SubmittedItemsForAuctionInteractor mInteractor;
+
     public SubmittedItemsForAuctionPresenter(SubmittedItemsForAuctionView submittedItemsForAuctionView,
                                              SubmittedItemsForAuctionInteractor submittedItemsForAuctionInteractor) {
         this.mView = submittedItemsForAuctionView;
@@ -22,7 +23,7 @@ public class SubmittedItemsForAuctionPresenter {
     public void listAllSubmittedItems() {
         ArrayList<Item> items = mInteractor.listAllSubmittedItems();
 
-        if(items.isEmpty()) {
+        if (items.isEmpty()) {
             mView.showNoItemSubmitted();
         } else {
             mView.setSubmittedItems(items);

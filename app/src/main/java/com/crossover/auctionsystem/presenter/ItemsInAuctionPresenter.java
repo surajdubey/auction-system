@@ -22,7 +22,7 @@ public class ItemsInAuctionPresenter {
     public void listAllItems() {
         ArrayList<Item> items = mInteractor.fetchAllItems();
 
-        if(items.isEmpty()) {
+        if (items.isEmpty()) {
             mView.showNoItemsAvailableForAuctionView();
         } else {
             mView.showItemForAuction(items);

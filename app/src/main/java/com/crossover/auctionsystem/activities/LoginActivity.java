@@ -24,10 +24,9 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     //EditText for entering password
     private EditText mPasswordEditText;
 
-    //Login Button
-    private Button mLoginButton;
-
     private Context mContext = this;
+
+    private LoginPresenter mLoginPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,21 +36,26 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         mUsernameEditText = (EditText) findViewById(R.id.username_edittext);
         mPasswordEditText = (EditText) findViewById(R.id.password_edittext);
 
-        mLoginButton = (Button) findViewById(R.id.login_button);
+        Button loginButton = (Button) findViewById(R.id.login_button);
 
         setToolbar();
+        setLoginPresenter();
 
-        final LoginInteractor loginInteractor = new LoginInteractor(mContext);
+        if (loginButton != null) {
+            loginButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    mLoginPresenter.login();
+                }
+            });
+        }
+    }
+
+    private void setLoginPresenter() {
+        LoginInteractor loginInteractor = new LoginInteractor(mContext);
         LoginView loginView = this;
 
-        final LoginPresenter loginPresenter = new LoginPresenter(loginView, loginInteractor);
-
-        mLoginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                loginPresenter.login();
-            }
-        });
+        mLoginPresenter = new LoginPresenter(loginView, loginInteractor);
     }
 
     private void setToolbar() {
@@ -93,7 +97,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId() == android.R.id.home) {
+        if (item.getItemId() == android.R.id.home) {
             finish();
         }
         return true;

@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class ViewBidsOnItemInteractor {
     private BidDataSource mBidDataSource;
-    private UserDataSource  mUserDataSource;
+    private UserDataSource mUserDataSource;
     private ItemDataSource mItemDataSource;
 
     public ViewBidsOnItemInteractor(Context context) {
@@ -33,7 +33,7 @@ public class ViewBidsOnItemInteractor {
          * set bidder name
          */
 
-        if(!bids.isEmpty()) {
+        if (!bids.isEmpty()) {
             mUserDataSource.open();
             for (Bid bid : bids) {
                 int userId = bid.getUserId();

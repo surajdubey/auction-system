@@ -42,16 +42,20 @@ public class ViewItemsInAuctionActivity extends AppCompatActivity implements Ite
         mItemsInAuctionRecyclerView = (RecyclerView) findViewById(R.id.items_in_auction_recycler_view);
         mNoItemAvailableForAuctionTextView = (TextView) findViewById(R.id.no_item_available_textview);
 
-        ItemsInAuctionView itemsInAuctionView = this;
-        ItemsInAuctionInteractor itemsInAuctionInteractor = new ItemsInAuctionInteractor(mContext);
-
-        mItemsInAuctionPresenter = new ItemsInAuctionPresenter(itemsInAuctionView, itemsInAuctionInteractor);
 
         setToolbar();
+        setItemsInAuctionPresenter();
         setItemsInAuctionRecyclerView();
 
         setNavigationView();
 
+    }
+
+    private void setItemsInAuctionPresenter() {
+        ItemsInAuctionView itemsInAuctionView = this;
+        ItemsInAuctionInteractor itemsInAuctionInteractor = new ItemsInAuctionInteractor(mContext);
+
+        mItemsInAuctionPresenter = new ItemsInAuctionPresenter(itemsInAuctionView, itemsInAuctionInteractor);
     }
 
     private void setToolbar() {
@@ -84,7 +88,10 @@ public class ViewItemsInAuctionActivity extends AppCompatActivity implements Ite
             }
         };
 
-        navigationView.setNavigationItemSelectedListener(this);
+        if (navigationView != null) {
+            navigationView.setNavigationItemSelectedListener(this);
+        }
+
         mDrawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
     }
@@ -118,13 +125,16 @@ public class ViewItemsInAuctionActivity extends AppCompatActivity implements Ite
     public boolean onNavigationItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
-            case R.id.itemSubmittedItemsInAuction: startSubmittedItemsInAuctionActivity();
+            case R.id.itemSubmittedItemsInAuction:
+                startSubmittedItemsInAuctionActivity();
                 break;
 
-            case R.id.itemViewMyBids : startMyBidsActivity();
+            case R.id.itemViewMyBids:
+                startMyBidsActivity();
                 break;
 
-            case R.id.itemLogout: logout();
+            case R.id.itemLogout:
+                logout();
                 break;
 
             default:

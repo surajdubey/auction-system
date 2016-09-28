@@ -17,7 +17,7 @@ public class LauncherPresenter {
     }
 
     public void startInitialActivity() {
-        if(mInteractor.isUserLoggedIn()) {
+        if (mInteractor.isUserLoggedIn()) {
             mView.startItemsAvailableForBidActivity();
         } else {
             mView.startSignupActivity();

@@ -13,6 +13,7 @@ import com.crossover.auctionsystem.R;
 
 public class ToolbarUtil {
     private AppCompatActivity mActivity;
+
     public ToolbarUtil(AppCompatActivity activity) {
         this.mActivity = activity;
     }
@@ -26,7 +27,7 @@ public class ToolbarUtil {
 
         ActionBar actionBar = mActivity.getSupportActionBar();
 
-        if(actionBar!=null) {
+        if (actionBar != null) {
             actionBar.setDisplayShowTitleEnabled(false);
             actionBar.setDisplayShowHomeEnabled(true);
             actionBar.setDisplayHomeAsUpEnabled(true);

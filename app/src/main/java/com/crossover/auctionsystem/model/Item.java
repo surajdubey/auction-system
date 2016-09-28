@@ -63,12 +63,12 @@ public class Item {
         return itemSold;
     }
 
-    public void setItemSold(int itemSoldInt) {
-        this.itemSold = (itemSoldInt == ITEM_SOLD);
-    }
-
     public void setItemSold(boolean itemSold) {
         this.itemSold = itemSold;
+    }
+
+    public void setItemSold(int itemSoldInt) {
+        this.itemSold = (itemSoldInt == ITEM_SOLD);
     }
 
     public String getSellerName() {

@@ -35,9 +35,9 @@ public class SubmittedItemsForAuctionInteractor {
          * set item name,description and available status for each of these items
          */
 
-        if(!items.isEmpty()) {
+        if (!items.isEmpty()) {
             mItemDataSource.open();
-            for(int index = 0; index< items.size(); index ++) {
+            for (int index = 0; index < items.size(); index++) {
                 Item oldItem = items.get(index);
                 Item item = mItemDataSource.getItemDetails(oldItem.getItemId());
                 items.set(index, item);
@@ -47,7 +47,7 @@ public class SubmittedItemsForAuctionInteractor {
         //close datasources
         mSellerDataSource.close();
         mItemDataSource.close();
-        
+
         return items;
     }
 }

@@ -22,11 +22,10 @@ import java.util.ArrayList;
 
 public class SubmittedItemsRecyclerViewAdapter extends RecyclerView.Adapter<SubmittedItemsRecyclerViewAdapter.ItemViewHolder> {
 
-    private Context mContext;
-    private ArrayList<Item> mItems;
-
     private static final int ITEM_SOLD_VIEW_TYPE = 0;
     private static final int ITEM_NOT_SOLD_VIEW_TYPE = 1;
+    private Context mContext;
+    private ArrayList<Item> mItems;
 
     public SubmittedItemsRecyclerViewAdapter(Context context, ArrayList<Item> items) {
         this.mContext = context;
@@ -37,7 +36,7 @@ public class SubmittedItemsRecyclerViewAdapter extends RecyclerView.Adapter<Subm
     public ItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         int layoutResId;
 
-        if(viewType == ITEM_SOLD_VIEW_TYPE) {
+        if (viewType == ITEM_SOLD_VIEW_TYPE) {
             layoutResId = R.layout.row_submitted_items_sold;
         } else {
             layoutResId = R.layout.row_submitted_items_not_sold;
@@ -52,7 +51,7 @@ public class SubmittedItemsRecyclerViewAdapter extends RecyclerView.Adapter<Subm
     public int getItemViewType(int position) {
         Item item = mItems.get(position);
 
-        if(item.isItemSold()) {
+        if (item.isItemSold()) {
             return ITEM_SOLD_VIEW_TYPE;
         } else {
             return ITEM_NOT_SOLD_VIEW_TYPE;

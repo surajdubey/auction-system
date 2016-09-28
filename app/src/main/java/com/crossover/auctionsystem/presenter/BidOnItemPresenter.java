@@ -29,7 +29,7 @@ public class BidOnItemPresenter {
 
     public void submitBid() {
         String bidAmountText = mView.getBidAmount();
-        if(!NumberUtil.isValidInt(bidAmountText)) {
+        if (!NumberUtil.isValidInt(bidAmountText)) {
             mView.showBidAmountInvalidError();
             return;
         }
@@ -37,7 +37,7 @@ public class BidOnItemPresenter {
         int bidAmount = Integer.parseInt(bidAmountText);
         int minimumBidAmount = mItem.getMinimumBidAmount();
 
-        if(bidAmount < minimumBidAmount) {
+        if (bidAmount < minimumBidAmount) {
             mView.showBidAmountLessThanMinimumAmountError();
             return;
         }

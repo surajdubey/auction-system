@@ -7,8 +7,7 @@
     android:orientation="vertical"
     tools:context="com.crossover.auctionsystem.activities.MyBidsActivity">
 
-    <include
-        layout="@layout/layout_toolbar" />
+    <include layout="@layout/layout_toolbar" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/my_bids_recyclerview"
@@ -23,9 +22,8 @@
         android:id="@+id/no_bids_textview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/no_bid_by_user"
         android:gravity="center"
+        android:text="@string/no_bid_by_user"
         android:textColor="@color/colorPrimary"
-        android:visibility="gone"
-        />
+        android:visibility="gone" />
 </LinearLayout>

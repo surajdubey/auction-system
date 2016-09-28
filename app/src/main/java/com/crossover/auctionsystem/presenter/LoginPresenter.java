@@ -10,6 +10,7 @@ import com.crossover.auctionsystem.view.LoginView;
 public class LoginPresenter {
     private LoginView mView;
     private LoginInteractor mInteractor;
+
     public LoginPresenter(LoginView loginView, LoginInteractor loginInteractor) {
         this.mView = loginView;
         this.mInteractor = loginInteractor;
@@ -19,17 +20,17 @@ public class LoginPresenter {
         String username = mView.getUsername();
         String password = mView.getPassword();
 
-        if(username.length()<5) {
+        if (username.length() < 5) {
             mView.showUsernameLengthInvalidError();
             return;
         }
 
-        if(password.length()<5) {
+        if (password.length() < 5) {
             mView.showPasswordLengthInvalidError();
             return;
         }
 
-        if(mInteractor.login(username, password)) {
+        if (mInteractor.login(username, password)) {
             mView.startItemsAvailableForBidActivity();
         } else {
             mView.showInvalidCredentialsError();

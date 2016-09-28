@@ -23,7 +23,7 @@ public class AddItemInAuctionActivity extends AppCompatActivity implements AddIt
     private EditText mDescriptionEditText;
     private EditText mMinimumBiddingAmountEditText;
     private EditText mTargetBiddingAmountEditText;
-    private Button mSubmitItemButton;
+    private AddItemInAuctionPresenter mAddItemInAuctionPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,20 +34,25 @@ public class AddItemInAuctionActivity extends AppCompatActivity implements AddIt
         mDescriptionEditText = (EditText) findViewById(R.id.item_description_edittext);
         mMinimumBiddingAmountEditText = (EditText) findViewById(R.id.item_minimum_amount_edittext);
         mTargetBiddingAmountEditText = (EditText) findViewById(R.id.target_amount_edittext);
-        mSubmitItemButton = (Button) findViewById(R.id.submit_item_button);
+        Button submitItemButton = (Button) findViewById(R.id.submit_item_button);
 
         setToolbar();
+        setAddItemInAuctionPresenter();
 
+        if (submitItemButton != null) {
+            submitItemButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    mAddItemInAuctionPresenter.submitItem();
+                }
+            });
+        }
+    }
+
+    private void setAddItemInAuctionPresenter() {
         AddItemInAuctionView addItemInAuctionView = this;
         final AddItemInAuctionInteractor addItemInAuctionInteractor = new AddItemInAuctionInteractor(mContext);
-        final AddItemInAuctionPresenter addItemInAuctionPresenter = new AddItemInAuctionPresenter(addItemInAuctionView, addItemInAuctionInteractor);
-
-        mSubmitItemButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                addItemInAuctionPresenter.submitItem();
-            }
-        });
+        mAddItemInAuctionPresenter = new AddItemInAuctionPresenter(addItemInAuctionView, addItemInAuctionInteractor);
     }
 
     private void setToolbar() {
@@ -112,7 +117,7 @@ public class AddItemInAuctionActivity extends AppCompatActivity implements AddIt
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId() == android.R.id.home) {
+        if (item.getItemId() == android.R.id.home) {
             finish();
         }
 

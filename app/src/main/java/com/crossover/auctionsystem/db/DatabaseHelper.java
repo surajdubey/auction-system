@@ -31,7 +31,7 @@ class DatabaseHelper extends SQLiteOpenHelper {
             AuctionContract.Bid.TABLE_NAME + "(" +
             AuctionContract.Bid._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             AuctionContract.Bid.COLUMN_NAME_USER_ID + " INTEGER, " +
-            AuctionContract.Bid.COLUMN_NAME_ITEM_ID + " INTEGER, "+
+            AuctionContract.Bid.COLUMN_NAME_ITEM_ID + " INTEGER, " +
             AuctionContract.Bid.COLUMN_NAME_BID_AMOUNT + " INTEGER, " +
             AuctionContract.Bid.COLUMN_NAME_BID_STATUS + " INTEGER, " +
             AuctionContract.Bid.COLUMN_NAME_BID_TIME + " TEXT )";

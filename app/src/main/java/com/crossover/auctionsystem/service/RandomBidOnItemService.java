@@ -14,17 +14,14 @@ import java.util.TimerTask;
 
 public class RandomBidOnItemService extends Service {
 
-    private Context mContext = this;
-    private Timer mTimer = new Timer();
-
-    private Handler mRandomBidHandler = new Handler();
-    private RandomBidOnItemInteractor mInteractor;
-
     private static final long MILLIS_IN_SECOND = 1000;
     private static final long SECONDS_IN_MINUTE = 60;
     private static final long PERIOD_IN_MINUTE = 2;
-
     private static final long DELAY_IN_MILLIS = 0;
+    private Context mContext = this;
+    private Timer mTimer = new Timer();
+    private Handler mRandomBidHandler = new Handler();
+    private RandomBidOnItemInteractor mInteractor;
 
     @Override
     public void onCreate() {

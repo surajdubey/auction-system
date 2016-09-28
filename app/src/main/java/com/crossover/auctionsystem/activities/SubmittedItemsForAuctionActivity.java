@@ -1,4 +1,3 @@
-
 package com.crossover.auctionsystem.activities;
 
 import android.content.Context;
@@ -27,7 +26,6 @@ public class SubmittedItemsForAuctionActivity extends AppCompatActivity implemen
     private Context mContext = this;
     private RecyclerView mSubmittedItemsRecyclerView;
     private SubmittedItemsForAuctionPresenter mSubmittedItemsForAuctionPresenter;
-    private SubmittedItemsRecyclerViewAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,11 +33,14 @@ public class SubmittedItemsForAuctionActivity extends AppCompatActivity implemen
         setContentView(R.layout.activity_submitted_items_for_auction);
 
         setToolbar();
+        setSubmittedItemsForAuctionPresenter();
+        setSubmittedItemsRecyclerView();
+    }
 
+    private void setSubmittedItemsForAuctionPresenter() {
         SubmittedItemsForAuctionView submittedItemsForAuctionView = this;
         SubmittedItemsForAuctionInteractor submittedItemsForAuctionInteractor = new SubmittedItemsForAuctionInteractor(mContext);
         mSubmittedItemsForAuctionPresenter = new SubmittedItemsForAuctionPresenter(submittedItemsForAuctionView, submittedItemsForAuctionInteractor);
-        setSubmittedItemsRecyclerView();
     }
 
     private void setToolbar() {
@@ -57,8 +58,8 @@ public class SubmittedItemsForAuctionActivity extends AppCompatActivity implemen
 
     @Override
     public void setSubmittedItems(ArrayList<Item> items) {
-        mAdapter = new SubmittedItemsRecyclerViewAdapter(mContext, items);
-        mSubmittedItemsRecyclerView.setAdapter(mAdapter);
+        SubmittedItemsRecyclerViewAdapter adapter = new SubmittedItemsRecyclerViewAdapter(mContext, items);
+        mSubmittedItemsRecyclerView.setAdapter(adapter);
     }
 
     @Override
@@ -67,7 +68,10 @@ public class SubmittedItemsForAuctionActivity extends AppCompatActivity implemen
         mSubmittedItemsRecyclerView.setVisibility(View.GONE);
 
         TextView noItemSubmittedTextView = (TextView) findViewById(R.id.no_item_submitted_for_auction_textview);
-        noItemSubmittedTextView.setVisibility(View.VISIBLE);
+
+        if (noItemSubmittedTextView != null) {
+            noItemSubmittedTextView.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
@@ -83,10 +87,12 @@ public class SubmittedItemsForAuctionActivity extends AppCompatActivity implemen
                 finish();
                 break;
 
-            case R.id.itemAddItem: startAddItemInAuctionActivity();
+            case R.id.itemAddItem:
+                startAddItemInAuctionActivity();
                 break;
 
-            default: break;
+            default:
+                break;
         }
         return super.onOptionsItemSelected(item);
     }

@@ -29,7 +29,7 @@ public class SellerDataSource {
     }
 
     public void close() {
-        if(mDatabase!=null) {
+        if (mDatabase != null) {
             mDatabase.close();
         }
     }
@@ -51,7 +51,7 @@ public class SellerDataSource {
 
         int userId = User.INVALID_USER_ID;
 
-        if(cursor.moveToFirst()) {
+        if (cursor.moveToFirst()) {
             int userIdIndex = cursor.getColumnIndex(AuctionContract.Seller.COLUMN_NAME_USER_ID);
             userId = cursor.getInt(userIdIndex);
         }
@@ -70,10 +70,10 @@ public class SellerDataSource {
 
         Cursor cursor = mDatabase.rawQuery(findQuery, null);
 
-        if(cursor.moveToFirst()) {
+        if (cursor.moveToFirst()) {
             int itemIdIndex = cursor.getColumnIndex(AuctionContract.Seller.COLUMN_NAME_ITEM_ID);
 
-            while(!cursor.isAfterLast()) {
+            while (!cursor.isAfterLast()) {
                 Item item = new Item();
                 int itemId = cursor.getInt(itemIdIndex);
                 item.setItemId(itemId);

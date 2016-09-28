@@ -26,13 +26,9 @@ public class SignupActivity extends AppCompatActivity implements SignupView {
     //EditText for entering password
     private EditText mPasswordEditText;
 
-    //sign up Button
-    private Button mSignUpButton;
-
-    //login Button
-    private Button mLoginButton;
-
     private Context mContext = this;
+
+    private SignupPresenter mSignupPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,28 +38,35 @@ public class SignupActivity extends AppCompatActivity implements SignupView {
         mNameEditText = (EditText) findViewById(R.id.etName);
         mUsernameEditText = (EditText) findViewById(R.id.username_edittext);
         mPasswordEditText = (EditText) findViewById(R.id.password_edittext);
-        mSignUpButton = (Button) findViewById(R.id.btnSignUp);
-        mLoginButton = (Button) findViewById(R.id.login_button);
+        Button signUpButton = (Button) findViewById(R.id.btnSignUp);
+        Button loginButton = (Button) findViewById(R.id.login_button);
 
+        setSignupPresenter();
+
+        if (signUpButton != null) {
+            signUpButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    mSignupPresenter.signup();
+                }
+            });
+        }
+
+        if (loginButton != null) {
+            loginButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    mSignupPresenter.login();
+                }
+            });
+        }
+    }
+
+    private void setSignupPresenter() {
         SignupView signupView = this;
         SignupInteractor signupInteractor = new SignupInteractor(mContext);
 
-        final SignupPresenter signupPresenter = new SignupPresenter(signupView, signupInteractor);
-
-        mSignUpButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                signupPresenter.signup();
-            }
-        });
-
-        mLoginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                signupPresenter.login();
-            }
-        });
-
+        mSignupPresenter = new SignupPresenter(signupView, signupInteractor);
     }
 
 

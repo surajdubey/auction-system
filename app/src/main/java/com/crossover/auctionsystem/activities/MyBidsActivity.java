@@ -20,7 +20,7 @@ import com.crossover.auctionsystem.view.MyBidsView;
 
 import java.util.ArrayList;
 
-public class MyBidsActivity extends AppCompatActivity implements MyBidsView{
+public class MyBidsActivity extends AppCompatActivity implements MyBidsView {
 
     private Context mContext = this;
     private MyBidsPresenter mBidsPresenter;
@@ -57,7 +57,7 @@ public class MyBidsActivity extends AppCompatActivity implements MyBidsView{
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId() == android.R.id.home) {
+        if (item.getItemId() == android.R.id.home) {
             finish();
         }
         return true;

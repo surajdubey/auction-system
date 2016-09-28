@@ -10,6 +10,7 @@ import com.crossover.auctionsystem.utils.PreferencesManager;
 
 public class LauncherInteractor {
     private PreferencesManager mPreferencesManager;
+
     public LauncherInteractor(Context context) {
         mPreferencesManager = PreferencesManager.initializeInstance(context);
     }

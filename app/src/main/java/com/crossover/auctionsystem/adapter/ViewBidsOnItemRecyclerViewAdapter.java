@@ -50,7 +50,7 @@ public class ViewBidsOnItemRecyclerViewAdapter extends RecyclerView.Adapter<View
         holder.bidAmountTextView.setText(bidAmountText);
         holder.bidderNameTextView.setText(bid.getBidderName());
 
-        if(bid.getBidStatus() == Bid.BID_WINNER) {
+        if (bid.getBidStatus() == Bid.BID_WINNER) {
             holder.winnerTextView.setVisibility(View.VISIBLE);
         }
     }
@@ -80,7 +80,7 @@ public class ViewBidsOnItemRecyclerViewAdapter extends RecyclerView.Adapter<View
              * if item is won, winner is already declared
              * so hide declare winner image
              */
-            if(mIsItemWon) {
+            if (mIsItemWon) {
                 declareWinnerImageView.setVisibility(View.GONE);
             } else {
                 declareWinnerImageView.setOnClickListener(this);
@@ -98,7 +98,7 @@ public class ViewBidsOnItemRecyclerViewAdapter extends RecyclerView.Adapter<View
 
             Toast.makeText(mContext, R.string.bid_winner_message, Toast.LENGTH_SHORT).show();
 
-            ((Activity)mContext).finish();
+            ((Activity) mContext).finish();
         }
 
         public void setBid(Bid bid) {

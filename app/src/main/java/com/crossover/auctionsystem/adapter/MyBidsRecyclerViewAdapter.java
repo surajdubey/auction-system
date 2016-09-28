@@ -46,7 +46,7 @@ public class MyBidsRecyclerViewAdapter extends RecyclerView.Adapter<MyBidsRecycl
         String bidAmountText = bid.getBidAmount() + "";
         holder.bidAmountTextView.setText(bidAmountText);
 
-        if(bid.getBidStatus() == Bid.BID_WINNER) {
+        if (bid.getBidStatus() == Bid.BID_WINNER) {
             holder.winnerTextView.setVisibility(View.VISIBLE);
         }
     }

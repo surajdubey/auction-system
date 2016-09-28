@@ -48,7 +48,7 @@ public class BidOnItemInteractor {
         int targetAmountForItem = item.getTargetBidAmount();
 
         int bidStatus;
-        if(bidAmount >= targetAmountForItem) {
+        if (bidAmount >= targetAmountForItem) {
             bidStatus = Bid.BID_WINNER;
 
             /**

@@ -27,7 +27,7 @@ public class ViewBidsOnItemActivity extends AppCompatActivity implements ViewBid
     private Context mContext = this;
     private RecyclerView mBidOnItemRecyclerView;
     private ViewBidsOnItemPresenter mPresenter;
-    private TextView mNoItemAvailableTextView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,11 +38,10 @@ public class ViewBidsOnItemActivity extends AppCompatActivity implements ViewBid
         ViewBidsOnItemInteractor viewBidsOnItemInteractor = new ViewBidsOnItemInteractor(mContext);
 
         mPresenter = new ViewBidsOnItemPresenter(viewBidsOnItemView, viewBidsOnItemInteractor);
-        mNoItemAvailableTextView = (TextView) findViewById(R.id.no_bids_textview);
 
         setToolbar();
 
-        setItemOnPresenter();
+        setViewBidsOnItemPresenter();
 
         setBidsOnItemRecyclerView();
     }
@@ -60,7 +59,7 @@ public class ViewBidsOnItemActivity extends AppCompatActivity implements ViewBid
         mPresenter.listAllBidsOnItem();
     }
 
-    private void setItemOnPresenter() {
+    private void setViewBidsOnItemPresenter() {
         Item item = EventBus.getDefault().getStickyEvent(Item.class);
         mPresenter.setItem(item);
     }
@@ -74,12 +73,17 @@ public class ViewBidsOnItemActivity extends AppCompatActivity implements ViewBid
     @Override
     public void showNoItemAvailableForBid() {
         mBidOnItemRecyclerView.setVisibility(View.GONE);
-        mNoItemAvailableTextView.setVisibility(View.VISIBLE);
+
+        TextView noItemAvailableTextView = (TextView) findViewById(R.id.no_bids_textview);
+
+        if (noItemAvailableTextView != null) {
+            noItemAvailableTextView.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId() == android.R.id.home) {
+        if (item.getItemId() == android.R.id.home) {
             finish();
         }
 

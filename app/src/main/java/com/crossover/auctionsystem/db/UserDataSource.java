@@ -106,7 +106,7 @@ public class UserDataSource {
         Cursor cursor = mDatabase.rawQuery(findQuery, null);
 
         int userId = User.INVALID_USER_ID;
-        if(cursor.moveToFirst()) {
+        if (cursor.moveToFirst()) {
             int userIdIndex = cursor.getColumnIndex(AuctionContract.User._ID);
             userId = cursor.getInt(userIdIndex);
         }

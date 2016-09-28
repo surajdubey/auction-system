@@ -25,20 +25,20 @@ public class AddItemInAuctionPresenter {
         String minimumAmountText = mView.getMinimumAmount();
         String targetAmountText = mView.getTargetAmount();
 
-        if(name.length()<5) {
+        if (name.length() < 5) {
             mView.showNameLengthInvalidError();
             return;
         }
 
-        if(description.length()<5) {
+        if (description.length() < 5) {
             mView.showDescriptionLengthInvalidError();
         }
 
-        if(!isValidInt(minimumAmountText)) {
+        if (!isValidInt(minimumAmountText)) {
             mView.showMinimumAmountInvalidError();
         }
 
-        if(!isValidInt(targetAmountText)) {
+        if (!isValidInt(targetAmountText)) {
             mView.showTargetAmountInvalidError();
             return;
         }
@@ -46,7 +46,7 @@ public class AddItemInAuctionPresenter {
         int minimumBidAmount = Integer.parseInt(minimumAmountText);
         int targetBidAmount = Integer.parseInt(targetAmountText);
 
-        if(targetBidAmount < minimumBidAmount) {
+        if (targetBidAmount < minimumBidAmount) {
             mView.showTargetAmountLessThanMinimumAmountError();
             return;
         }

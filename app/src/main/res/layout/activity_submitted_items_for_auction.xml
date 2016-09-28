@@ -25,7 +25,6 @@
         android:gravity="center"
         android:text="@string/no_items_submitted_for_auction"
         android:textColor="@color/colorPrimary"
-        android:visibility="gone"
-        />
+        android:visibility="gone" />
 
 </LinearLayout>

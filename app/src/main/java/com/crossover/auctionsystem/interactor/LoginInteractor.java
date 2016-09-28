@@ -30,7 +30,7 @@ public class LoginInteractor {
         long userId = mUserDataSource.userLogin(user);
         mUserDataSource.close();
 
-        if(userId == UserDataSource.INVALID_USER_ID) {
+        if (userId == UserDataSource.INVALID_USER_ID) {
             return false;
         } else {
             /**

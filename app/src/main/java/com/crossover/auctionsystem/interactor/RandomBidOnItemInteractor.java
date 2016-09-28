@@ -17,12 +17,11 @@ import java.util.Random;
  */
 
 public class RandomBidOnItemInteractor {
+    public static final String TAG = RandomBidOnItemInteractor.class.getName();
     private BidDataSource mBidDataSource;
     private UserDataSource mUserDataSource;
     private ItemDataSource mItemDataSource;
     private Random mRandom;
-
-    public static final String TAG = RandomBidOnItemInteractor.class.getName();
 
     public RandomBidOnItemInteractor(Context context) {
         mBidDataSource = new BidDataSource(context);
@@ -37,7 +36,7 @@ public class RandomBidOnItemInteractor {
          */
         int randomUserId = getRandomUserId();
 
-        if(randomUserId == User.INVALID_USER_ID) {
+        if (randomUserId == User.INVALID_USER_ID) {
             return;
         }
 
@@ -47,7 +46,7 @@ public class RandomBidOnItemInteractor {
 
 
         Item randomItem = getRandomItem();
-        if(randomItem == null) {
+        if (randomItem == null) {
             return;
         }
 
@@ -77,7 +76,7 @@ public class RandomBidOnItemInteractor {
 
         ArrayList<Item> items = mItemDataSource.fetchAllItems();
 
-        if(items.isEmpty()) {
+        if (items.isEmpty()) {
             return null;
         }
 

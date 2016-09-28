@@ -39,8 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:text="@string/declare_as_winner"
-                />
+                android:text="@string/declare_as_winner" />
 
         </RelativeLayout>
 
@@ -48,8 +47,7 @@
             android:id="@+id/bids_on_item_recyclerview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/ten_dp"
-            />
+            android:layout_marginTop="@dimen/ten_dp" />
 
     </LinearLayout>
 

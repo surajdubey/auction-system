@@ -39,12 +39,12 @@ public class ItemsInAuctionInteractor {
          * for each of these items set seller name
          */
 
-        if(!items.isEmpty()) {
+        if (!items.isEmpty()) {
 
             mSellerDataSource.open();
             mUserDataSource.open();
 
-            for(Item item: items) {
+            for (Item item : items) {
                 int userId = mSellerDataSource.getSellerUserIdForItem(item.getItemId());
                 String userDisplayName = mUserDataSource.getUserDisplayName(userId);
 

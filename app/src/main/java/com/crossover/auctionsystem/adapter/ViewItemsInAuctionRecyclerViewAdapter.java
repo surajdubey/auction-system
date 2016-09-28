@@ -23,11 +23,10 @@ import java.util.ArrayList;
 
 public class ViewItemsInAuctionRecyclerViewAdapter extends RecyclerView.Adapter<ViewItemsInAuctionRecyclerViewAdapter.ItemViewHolder> {
 
-    private Context mContext;
-    private ArrayList<Item> mItems;
     private static final int ITEM_AVAILABLE = 0;
     private static final int ITEM_NOT_AVAILABLE = 0;
-
+    private Context mContext;
+    private ArrayList<Item> mItems;
     private ItemsInAuctionInteractor mItemsInAuctionInteractor;
 
     public ViewItemsInAuctionRecyclerViewAdapter(Context context, ArrayList<Item> items) {
@@ -41,13 +40,13 @@ public class ViewItemsInAuctionRecyclerViewAdapter extends RecyclerView.Adapter<
 
         int layoutResId;
 
-        if(viewType == ITEM_AVAILABLE) {
+        if (viewType == ITEM_AVAILABLE) {
             layoutResId = R.layout.row_available_item_in_auction;
         } else {
             layoutResId = R.layout.row_won_item_in_auction;
         }
 
-        View itemView = LayoutInflater.from(mContext).inflate(layoutResId, parent,  false);
+        View itemView = LayoutInflater.from(mContext).inflate(layoutResId, parent, false);
         ItemViewHolder viewHolder = new ItemViewHolder(itemView);
         return viewHolder;
     }
@@ -61,7 +60,7 @@ public class ViewItemsInAuctionRecyclerViewAdapter extends RecyclerView.Adapter<
         holder.nameTextView.setText(item.getItemName());
         holder.descriptionTextView.setText(item.getItemDescription());
 
-        if(holder.getItemViewType() == ITEM_AVAILABLE) {
+        if (holder.getItemViewType() == ITEM_AVAILABLE) {
             String minimumBidAmountText = item.getMinimumBidAmount() + "";
             holder.minimumBidAmountTextView.setText(minimumBidAmountText);
 
@@ -86,7 +85,7 @@ public class ViewItemsInAuctionRecyclerViewAdapter extends RecyclerView.Adapter<
     public int getItemViewType(int position) {
 
         Item item = mItems.get(position);
-        if(item.isItemSold()) {
+        if (item.isItemSold()) {
             return ITEM_NOT_AVAILABLE;
         } else {
             return ITEM_AVAILABLE;
@@ -124,7 +123,7 @@ public class ViewItemsInAuctionRecyclerViewAdapter extends RecyclerView.Adapter<
 
         @Override
         public void onClick(View view) {
-            if(!item.isItemSold()) {
+            if (!item.isItemSold()) {
 
                 //put seletected item on Bus
                 EventBus.getDefault().postSticky(item);

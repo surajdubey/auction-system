@@ -27,7 +27,8 @@ public class BidOnItemActivity extends AppCompatActivity implements BidOnItemVie
     private TextView mDescriptionTextView;
     private TextView mMinimumAmountTextView;
     private EditText mBidAmountEditText;
-    private Button mSubmitBidButton;
+
+    private BidOnItemPresenter mBidOnItemPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,24 +39,29 @@ public class BidOnItemActivity extends AppCompatActivity implements BidOnItemVie
         mDescriptionTextView = (TextView) findViewById(R.id.item_description_textview);
         mMinimumAmountTextView = (TextView) findViewById(R.id.item_min_bid_amount_textview);
         mBidAmountEditText = (EditText) findViewById(R.id.bid_amount_edittext);
-        mSubmitBidButton = (Button) findViewById(R.id.submit_bid_button);
+        Button submitBidButton = (Button) findViewById(R.id.submit_bid_button);
 
         setToolbar();
+        setBidOnItemPresenter();
 
-        BidOnItemView bidOnItemView = this;
-        BidOnItemInteractor bidOnItemInteractor = new BidOnItemInteractor(mContext);
 
-        final BidOnItemPresenter bidOnItemPresenter = new BidOnItemPresenter(bidOnItemView, bidOnItemInteractor);
-
-        mSubmitBidButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                bidOnItemPresenter.submitBid();
-            }
-        });
+        if (submitBidButton != null) {
+            submitBidButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    mBidOnItemPresenter.submitBid();
+                }
+            });
+        }
 
         Item item = EventBus.getDefault().getStickyEvent(Item.class);
-        bidOnItemPresenter.setItem(item);
+        mBidOnItemPresenter.setItem(item);
+    }
+
+    private void setBidOnItemPresenter() {
+        BidOnItemView bidOnItemView = this;
+        BidOnItemInteractor bidOnItemInteractor = new BidOnItemInteractor(mContext);
+        mBidOnItemPresenter = new BidOnItemPresenter(bidOnItemView, bidOnItemInteractor);
     }
 
     private void setToolbar() {
@@ -106,7 +112,7 @@ public class BidOnItemActivity extends AppCompatActivity implements BidOnItemVie
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId() == android.R.id.home) {
+        if (item.getItemId() == android.R.id.home) {
             finish();
         }
 

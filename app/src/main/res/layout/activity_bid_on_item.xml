@@ -7,8 +7,7 @@
     android:orientation="vertical"
     tools:context="com.crossover.auctionsystem.activities.BidOnItemActivity">
 
-    <include
-        layout="@layout/layout_toolbar" />
+    <include layout="@layout/layout_toolbar" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,58 +16,54 @@
         android:layout_marginLeft="@dimen/activity_horizontal_margin"
         android:layout_marginRight="@dimen/activity_horizontal_margin"
         android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:orientation="vertical"
-        >
-    <TextView
-        android:id="@+id/item_name_textview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center" />
-
-    <TextView
-        android:id="@+id/item_description_textview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/ten_dp" />
-
-    <EditText
-        android:id="@+id/bid_amount_edittext"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/ten_dp"
-        android:hint="@string/enter_bid_amount"
-        android:inputType="numberDecimal"
-        android:maxLength="8"
-        />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/ten_dp"
-        >
+        android:orientation="vertical">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/minimum_amount_required_text"
-            />
-
-        <TextView
-            android:id="@+id/item_min_bid_amount_textview"
+            android:id="@+id/item_name_textview"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
+            android:layout_height="wrap_content"
+            android:gravity="center" />
 
-    <Button
-        android:id="@+id/submit_bid_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginRight="@dimen/activity_horizontal_margin"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:background="@color/colorPrimary"
-        android:text="@string/submit_bid"
-        android:textColor="@color/colorWhite"
-        />
+        <TextView
+            android:id="@+id/item_description_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/ten_dp" />
+
+        <EditText
+            android:id="@+id/bid_amount_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/ten_dp"
+            android:hint="@string/enter_bid_amount"
+            android:inputType="numberDecimal"
+            android:maxLength="8" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/ten_dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/minimum_amount_required_text" />
+
+            <TextView
+                android:id="@+id/item_min_bid_amount_textview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
         </LinearLayout>
+
+        <Button
+            android:id="@+id/submit_bid_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:background="@color/colorPrimary"
+            android:text="@string/submit_bid"
+            android:textColor="@color/colorWhite" />
+    </LinearLayout>
 </LinearLayout>

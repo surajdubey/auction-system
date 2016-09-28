@@ -24,7 +24,7 @@ public class MyBidsPresenter {
     public void listAllBids() {
         ArrayList<Bid> bids = mInteractor.fetchAllBids();
         ArrayList<Item> items = mInteractor.fetchAllItemsFromBids(bids);
-        if(bids.isEmpty()) {
+        if (bids.isEmpty()) {
             mView.showNoBidsPlacedView();
         } else {
             mView.showBids(bids, items);

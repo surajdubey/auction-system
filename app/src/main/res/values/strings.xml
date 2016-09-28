@@ -27,7 +27,7 @@
     <string name="enter_target_amount">Enter Target Amount</string>
     <string name="submit_item">Submit Item</string>
     <string name="invalid_target_amount">Target Amount is invalid</string>
-    <string name="minimum_amount_invalid">Minimum Amount is Invalid</string>
+    <string name="minimum_amount_invalid">Minimum Amount is Invalid. Should be number and greater than 0</string>
     <string name="description_invalid_error">Description must have atleast 5 characters</string>
     <string name="name_invalid_error">Name must have atleast 5 characters</string>
     <string name="enter_bid_amount">Enter Bid Amount</string>

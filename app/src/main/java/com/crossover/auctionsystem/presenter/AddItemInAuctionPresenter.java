@@ -13,6 +13,7 @@ public class AddItemInAuctionPresenter {
 
     private AddItemInAuctionView mView;
     private AddItemInAuctionInteractor mInteractor;
+    private static int MINIMUM_BID_AMOUNT_ALLOWED = 1;
 
     public AddItemInAuctionPresenter(AddItemInAuctionView addItemInAuctionView, AddItemInAuctionInteractor addItemInAuctionInteractor) {
         this.mView = addItemInAuctionView;
@@ -32,10 +33,12 @@ public class AddItemInAuctionPresenter {
 
         if (description.length() < 5) {
             mView.showDescriptionLengthInvalidError();
+            return;
         }
 
         if (!isValidInt(minimumAmountText)) {
             mView.showMinimumAmountInvalidError();
+            return;
         }
 
         if (!isValidInt(targetAmountText)) {
@@ -45,6 +48,10 @@ public class AddItemInAuctionPresenter {
 
         int minimumBidAmount = Integer.parseInt(minimumAmountText);
         int targetBidAmount = Integer.parseInt(targetAmountText);
+
+        if(minimumBidAmount < MINIMUM_BID_AMOUNT_ALLOWED ) {
+            mView.showMinimumAmountInvalidError();
+        }
 
         if (targetBidAmount < minimumBidAmount) {
             mView.showTargetAmountLessThanMinimumAmountError();

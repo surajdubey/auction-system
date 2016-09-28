@@ -1,9 +1,7 @@
 package com.crossover.auctionsystem.presenter;
 
-import com.crossover.auctionsystem.interactor.BidOnItemInteractor;
 import com.crossover.auctionsystem.interactor.ItemsInAuctionInteractor;
 import com.crossover.auctionsystem.model.Item;
-import com.crossover.auctionsystem.view.BidOnItemView;
 import com.crossover.auctionsystem.view.ItemsInAuctionView;
 
 import org.junit.Before;
@@ -14,8 +12,6 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import java.util.ArrayList;
 
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 

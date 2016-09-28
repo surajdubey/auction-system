@@ -20,17 +20,20 @@ public class ToolbarUtil {
 
     public void showToolbarWithBackButton(String toolbarTitle) {
         Toolbar toolbar = (Toolbar) mActivity.findViewById(R.id.toolbar);
-        TextView toolbarTitleTextView = (TextView) toolbar.findViewById(R.id.toolbar_title_textview);
-        toolbarTitleTextView.setText(toolbarTitle);
 
-        mActivity.setSupportActionBar(toolbar);
+        if (toolbar != null) {
+            TextView toolbarTitleTextView = (TextView) toolbar.findViewById(R.id.toolbar_title_textview);
+            toolbarTitleTextView.setText(toolbarTitle);
 
-        ActionBar actionBar = mActivity.getSupportActionBar();
+            mActivity.setSupportActionBar(toolbar);
 
-        if (actionBar != null) {
-            actionBar.setDisplayShowTitleEnabled(false);
-            actionBar.setDisplayShowHomeEnabled(true);
-            actionBar.setDisplayHomeAsUpEnabled(true);
+            ActionBar actionBar = mActivity.getSupportActionBar();
+
+            if (actionBar != null) {
+                actionBar.setDisplayShowTitleEnabled(false);
+                actionBar.setDisplayShowHomeEnabled(true);
+                actionBar.setDisplayHomeAsUpEnabled(true);
+            }
         }
 
     }

@@ -43,8 +43,7 @@ public class SubmittedItemsRecyclerViewAdapter extends RecyclerView.Adapter<Subm
         }
 
         View itemView = LayoutInflater.from(mContext).inflate(layoutResId, parent, false);
-        ItemViewHolder viewHolder = new ItemViewHolder(itemView);
-        return viewHolder;
+        return new ItemViewHolder(itemView);
     }
 
     @Override
@@ -79,7 +78,7 @@ public class SubmittedItemsRecyclerViewAdapter extends RecyclerView.Adapter<Subm
         private TextView descriptionTextView;
         private Item item;
 
-        public ItemViewHolder(View itemView) {
+        ItemViewHolder(View itemView) {
             super(itemView);
             nameTextView = (TextView) itemView.findViewById(R.id.item_name_textview);
             descriptionTextView = (TextView) itemView.findViewById(R.id.item_description_textview);

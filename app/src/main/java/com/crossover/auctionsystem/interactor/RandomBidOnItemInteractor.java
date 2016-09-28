@@ -8,6 +8,7 @@ import com.crossover.auctionsystem.db.UserDataSource;
 import com.crossover.auctionsystem.model.Bid;
 import com.crossover.auctionsystem.model.Item;
 import com.crossover.auctionsystem.model.User;
+import com.crossover.auctionsystem.utils.PreferencesManager;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -17,16 +18,17 @@ import java.util.Random;
  */
 
 public class RandomBidOnItemInteractor {
-    public static final String TAG = RandomBidOnItemInteractor.class.getName();
     private BidDataSource mBidDataSource;
     private UserDataSource mUserDataSource;
     private ItemDataSource mItemDataSource;
+    private PreferencesManager mPreferencesManager;
     private Random mRandom;
 
     public RandomBidOnItemInteractor(Context context) {
         mBidDataSource = new BidDataSource(context);
         mUserDataSource = new UserDataSource(context);
         mItemDataSource = new ItemDataSource(context);
+        mPreferencesManager = PreferencesManager.initializeInstance(context);
         mRandom = new Random();
     }
 
@@ -37,6 +39,15 @@ public class RandomBidOnItemInteractor {
         int randomUserId = getRandomUserId();
 
         if (randomUserId == User.INVALID_USER_ID) {
+            return;
+        }
+
+        int currentUserId = mPreferencesManager.getUserId();
+
+        /**
+         * user cannot randomly place bid on its own item
+         */
+        if(currentUserId == randomUserId) {
             return;
         }
 

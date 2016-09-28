@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.crossover.auctionsystem.R;
 import com.crossover.auctionsystem.activities.BidOnItemActivity;
@@ -47,8 +48,7 @@ public class ViewItemsInAuctionRecyclerViewAdapter extends RecyclerView.Adapter<
         }
 
         View itemView = LayoutInflater.from(mContext).inflate(layoutResId, parent, false);
-        ItemViewHolder viewHolder = new ItemViewHolder(itemView);
-        return viewHolder;
+        return new ItemViewHolder(itemView);
     }
 
     @Override
@@ -104,7 +104,7 @@ public class ViewItemsInAuctionRecyclerViewAdapter extends RecyclerView.Adapter<
         private TextView winnerNameTextView;
         private TextView winnerAmountTextView;
 
-        public ItemViewHolder(View itemView) {
+        ItemViewHolder(View itemView) {
             super(itemView);
             nameTextView = (TextView) itemView.findViewById(R.id.item_name_textview);
             descriptionTextView = (TextView) itemView.findViewById(R.id.item_description_textview);
@@ -123,13 +123,17 @@ public class ViewItemsInAuctionRecyclerViewAdapter extends RecyclerView.Adapter<
 
         @Override
         public void onClick(View view) {
-            if (!item.isItemSold()) {
 
-                //put seletected item on Bus
+            if (mItemsInAuctionInteractor.isUserBiddingOnOwnItsOwnItem(item.getItemId())) {
+                Toast.makeText(mContext, R.string.you_cannot_bid_on_your_item_error, Toast.LENGTH_SHORT).show();
+            } else if (!item.isItemSold()) {
+
+                //put selected item on Bus
                 EventBus.getDefault().postSticky(item);
                 Intent intent = new Intent(mContext, BidOnItemActivity.class);
                 mContext.startActivity(intent);
             }
+
         }
     }
 }

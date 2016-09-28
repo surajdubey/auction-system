@@ -81,6 +81,11 @@ public class ItemsInAuctionInteractor {
         return winnerBidAmount;
     }
 
+    public boolean isUserBiddingOnOwnItsOwnItem(int itemId) {
+        int userId = mPreferencesManager.getUserId();
+        return userId == itemId;
+    }
+
     public void clearPreferences() {
         mPreferencesManager.clearAllValues();
     }

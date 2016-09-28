@@ -31,8 +31,7 @@ public class MyBidsRecyclerViewAdapter extends RecyclerView.Adapter<MyBidsRecycl
     @Override
     public BidViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(mContext).inflate(R.layout.row_my_bids, parent, false);
-        BidViewHolder viewHolder = new BidViewHolder(itemView);
-        return viewHolder;
+        return new BidViewHolder(itemView);
     }
 
     @Override

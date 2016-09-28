@@ -63,4 +63,5 @@
     <string name="view_my_bids">View My Bids</string>
     <string name="item_description">Item Description :</string>
     <string name="sign_up">Sign up</string>
+    <string name="you_cannot_bid_on_your_item_error">You cannot bid on your item</string>
 </resources>

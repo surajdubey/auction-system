@@ -37,8 +37,7 @@ public class ViewBidsOnItemRecyclerViewAdapter extends RecyclerView.Adapter<View
     @Override
     public BidViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(mContext).inflate(R.layout.row_bid_on_item, parent, false);
-        BidViewHolder viewHolder = new BidViewHolder(itemView);
-        return viewHolder;
+        return new BidViewHolder(itemView);
     }
 
     @Override
@@ -68,7 +67,7 @@ public class ViewBidsOnItemRecyclerViewAdapter extends RecyclerView.Adapter<View
         private TextView winnerTextView;
         private Bid bid;
 
-        public BidViewHolder(View itemView) {
+        BidViewHolder(View itemView) {
             super(itemView);
 
             bidderNameTextView = (TextView) itemView.findViewById(R.id.bidder_name_textview);
